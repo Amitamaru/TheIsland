@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54eb488-1993-4bd9-b128-11e43bb5101a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" afterDir="false" />
+    <list default="true" id="c54eb488-1993-4bd9-b128-11e43bb5101a" name="Changes" comment="added param names using unicode img">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/Animal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +84,14 @@
       <workItem from="1665158100031" duration="3855000" />
       <workItem from="1665314672470" duration="16061000" />
     </task>
+    <task id="LOCAL-00001" summary="added param names using unicode img">
+      <created>1665465784664</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665465784664</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,5 +107,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added param names using unicode img" />
+    <option name="LAST_COMMIT_MESSAGE" value="added param names using unicode img" />
   </component>
 </project>

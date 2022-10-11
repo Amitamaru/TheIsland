@@ -41,5 +41,8 @@ public abstract class Animal {
         return foodsNeeded;
     }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }
