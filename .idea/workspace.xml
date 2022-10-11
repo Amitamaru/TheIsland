@@ -5,31 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c54eb488-1993-4bd9-b128-11e43bb5101a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/CarnivorousAnimals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/HerbivorousAnimals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Bear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Eagle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Fox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Snake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Woolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Boar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Buffalo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Caterpillar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Deer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Duck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Goat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Horse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Rabbit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Sheep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/plants/Grass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/marzhiievskyi/dmytro/com/ua/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,7 +58,7 @@
   <component name="RunManager">
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.javarush.marzhiievskyi.Runner" />
-      <module name="TheIsland" />
+      <module name="The Island" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.javarush.marzhiievskyi.*" />
