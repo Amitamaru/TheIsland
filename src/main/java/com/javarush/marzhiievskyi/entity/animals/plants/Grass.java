@@ -1,8 +1,16 @@
 package com.javarush.marzhiievskyi.entity.animals.plants;
 
+import com.javarush.marzhiievskyi.entity.animals.Plants;
 
-import com.javarush.marzhiievskyi.entity.animals.Animal;
+public class Grass extends Plants {
 
-public class Grass {
 
+    protected Grass(String name, double weight) {
+        super(name, weight);
+    }
+
+    @Override
+    public Plants multiply(Plants plants) {
+        return null;
+    }
 }

@@ -1,18 +1,16 @@
 package com.javarush.marzhiievskyi.entity.field;
 
-import java.util.Arrays;
-
 public class Field {
     Cell cell;
-    private Cell[][] fieldIsland = new Cell[20][100];
+    private final Cell[][] fieldIsland = new Cell[20][100];
 
 
 
-    public void print() {
+    public void initField() {
         for (int i = 0; i < fieldIsland.length; i++) {
             for (int j = 0; j < fieldIsland[i].length; j++) {
-
-                System.out.print(cell = new Cell());
+                cell = new Cell(j, i);
+                System.out.print(cell);
             }
             System.out.println();
         }
