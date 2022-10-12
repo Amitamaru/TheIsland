@@ -5,5 +5,16 @@ public enum AnimalNames {
     SNAKE,
     FOX,
     BEAR,
-    EAGLE
+    EAGLE,
+    HORSE,
+    DEER,
+    RABBIT,
+    MOUSE,
+    GOAT,
+    SHEEP,
+    BOAR,
+    BUFFALO,
+    DUCK,
+    CATERPILLAR,
+    HERB
 }
