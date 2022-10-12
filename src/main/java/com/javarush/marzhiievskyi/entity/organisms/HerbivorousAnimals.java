@@ -1,7 +1,5 @@
-package com.javarush.marzhiievskyi.entity.animals;
+package com.javarush.marzhiievskyi.entity.organisms;
 
-
-import com.javarush.marzhiievskyi.entity.animals.plants.Grass;
 
 public abstract class HerbivorousAnimals extends Animal {
 

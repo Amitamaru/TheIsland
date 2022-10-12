@@ -4,23 +4,93 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a72cef5-3c4d-40bf-8e03-9077f2cc5d51" name="Changes" comment="">
+    <list default="true" id="4a72cef5-3c4d-40bf-8e03-9077f2cc5d51" name="Changes" comment="commit 12.10.2022">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Organism.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/services/GenerateIslandField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/services/GenerateOrganisms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AnimalParameters.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/AnimalNames.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/Parameters.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/CarnivorousAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/CarnivorousAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/HerbivorousAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/HerbivorousAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Plants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Bear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Bear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Eagle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Fox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/carnivorous/Woolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Woolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Boar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Boar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Buffalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Buffalo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Caterpillar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Caterpillar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Deer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Deer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Duck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Duck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Goat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Goat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Horse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Rabbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Rabbit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/herbivorous/Sheep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Sheep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/animals/plants/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/plants/Grass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/services/GenerateAnimal.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3d9d6c02afc362f795cd2d2835754b473d21fe37" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G1e3ByRCFdcr81ElYLjRaRewcl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/freem/Downloads/snakeyaml-1.32.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.javarush.marzhiievskyi.Runner" />
@@ -38,10 +108,50 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a72cef5-3c4d-40bf-8e03-9077f2cc5d51" name="Changes" comment="" />
+      <created>1665560318294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665560318294</updated>
+      <workItem from="1665560319721" duration="725000" />
+      <workItem from="1665590891964" duration="3076000" />
+      <workItem from="1665594255625" duration="9193000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit 12.10.2022">
+      <created>1665560706114</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665560706114</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit 12.10.2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 12.10.2022" />
   </component>
 </project>

@@ -1,6 +1,6 @@
-package com.javarush.marzhiievskyi.entity.animals.plants;
+package com.javarush.marzhiievskyi.entity.organisms.plants;
 
-import com.javarush.marzhiievskyi.entity.animals.Plants;
+import com.javarush.marzhiievskyi.entity.organisms.Plants;
 
 public class Grass extends Plants {
 

@@ -1,8 +1,8 @@
-package com.javarush.marzhiievskyi.entity.animals.carnivorous;
+package com.javarush.marzhiievskyi.entity.organisms.carnivorous;
 
-import com.javarush.marzhiievskyi.entity.animals.Animal;
-import com.javarush.marzhiievskyi.entity.animals.CarnivorousAnimals;
-import com.javarush.marzhiievskyi.entity.animals.HerbivorousAnimals;
+import com.javarush.marzhiievskyi.entity.organisms.Animal;
+import com.javarush.marzhiievskyi.entity.organisms.CarnivorousAnimals;
+import com.javarush.marzhiievskyi.entity.organisms.HerbivorousAnimals;
 
 public class Snake extends CarnivorousAnimals {
 

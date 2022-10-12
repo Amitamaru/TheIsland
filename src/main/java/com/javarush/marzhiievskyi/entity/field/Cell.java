@@ -1,33 +1,23 @@
 package com.javarush.marzhiievskyi.entity.field;
 
-import com.javarush.marzhiievskyi.entity.animals.Animal;
+import com.javarush.marzhiievskyi.entity.organisms.Organism;
+import com.javarush.marzhiievskyi.entity.organisms.carnivorous.Bear;
+import com.javarush.marzhiievskyi.services.GenerateOrganisms;
 
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Cell {
 
-    private final int X;
-    private final int Y;
-
-    private List<Animal> animals;
+    private Map<Organism, Integer> organismSet = new HashMap<>(); // key - organism, value - quantity
 
 
-
-    public Cell(int x, int y) {
-        X = x;
-        Y = y;
-    }
-
-    public int getX() {
-        return X;
-    }
-
-    public int getY() {
-        return Y;
-    }
 
     @Override
     public String toString() {
-        return "[" + Y +" "+ X + "]";
+
+        return "[ " +" ]";
     }
 }

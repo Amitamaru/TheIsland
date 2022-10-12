@@ -1,7 +1,7 @@
-package com.javarush.marzhiievskyi.entity.animals;
+package com.javarush.marzhiievskyi.entity.organisms;
 
 
-public abstract class Animal {
+public abstract class Animal extends Organism {
 
     private final String name;
     private double weight;

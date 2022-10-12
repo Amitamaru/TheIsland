@@ -1,9 +1,8 @@
-package com.javarush.marzhiievskyi.entity.animals.herbivorous;
+package com.javarush.marzhiievskyi.entity.organisms.herbivorous;
 
-import com.javarush.marzhiievskyi.entity.animals.Animal;
-import com.javarush.marzhiievskyi.entity.animals.HerbivorousAnimals;
-import com.javarush.marzhiievskyi.entity.animals.Plants;
-import com.javarush.marzhiievskyi.entity.animals.plants.Grass;
+import com.javarush.marzhiievskyi.entity.organisms.Animal;
+import com.javarush.marzhiievskyi.entity.organisms.HerbivorousAnimals;
+import com.javarush.marzhiievskyi.entity.organisms.Plants;
 
 public class Duck extends HerbivorousAnimals {
 
