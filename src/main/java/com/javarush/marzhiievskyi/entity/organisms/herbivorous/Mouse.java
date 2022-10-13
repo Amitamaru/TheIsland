@@ -7,7 +7,7 @@ import com.javarush.marzhiievskyi.entity.organisms.Plants;
 public class Mouse extends HerbivorousAnimals {
 
 
-    protected Mouse(String name, double weight, int MoveSpeed, double foodsNeeded) {
+    public Mouse(String name, double weight, int MoveSpeed, double foodsNeeded) {
         super(name, weight, MoveSpeed, foodsNeeded);
     }
 

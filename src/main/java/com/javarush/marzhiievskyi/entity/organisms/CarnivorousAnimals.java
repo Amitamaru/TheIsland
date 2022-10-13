@@ -4,7 +4,7 @@ package com.javarush.marzhiievskyi.entity.organisms;
 public abstract class CarnivorousAnimals extends Animal {
 
 
-    protected CarnivorousAnimals(String name, double weight, int MoveSpeed, double foodsNeeded) {
+    public CarnivorousAnimals(String name, double weight, int MoveSpeed, double foodsNeeded) {
         super(name, weight, MoveSpeed, foodsNeeded);
     }
 

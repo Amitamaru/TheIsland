@@ -1,7 +1,5 @@
 package com.javarush.marzhiievskyi.entity.field;
 
-import com.javarush.marzhiievskyi.services.GenerateOrganisms;
-
 public class Field {
     Cell cell;
     private final Cell[][] fieldIsland = new Cell[20][100];

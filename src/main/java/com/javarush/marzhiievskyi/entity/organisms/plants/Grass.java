@@ -5,8 +5,8 @@ import com.javarush.marzhiievskyi.entity.organisms.Plants;
 public class Grass extends Plants {
 
 
-    protected Grass(String name, double weight) {
-        super(name, weight);
+    public Grass(String name, double weight, int moveSpeed, double foodsNeeded) {
+        super(name, weight, moveSpeed, foodsNeeded);
     }
 
     @Override

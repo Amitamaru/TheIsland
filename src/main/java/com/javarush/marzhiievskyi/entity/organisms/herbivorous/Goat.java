@@ -7,7 +7,7 @@ import com.javarush.marzhiievskyi.entity.organisms.Plants;
 public class Goat extends HerbivorousAnimals {
 
 
-    protected Goat(String name, double weight, int MoveSpeed, double foodsNeeded) {
+    public  Goat(String name, double weight, int MoveSpeed, double foodsNeeded) {
         super(name, weight, MoveSpeed, foodsNeeded);
     }
 

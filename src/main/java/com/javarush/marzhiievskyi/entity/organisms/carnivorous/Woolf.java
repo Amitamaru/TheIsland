@@ -8,7 +8,7 @@ import com.javarush.marzhiievskyi.entity.organisms.HerbivorousAnimals;
 public class Woolf extends CarnivorousAnimals {
 
 
-    protected Woolf(String name, double weight, int MoveSpeed, double foodsNeeded) {
+    public Woolf(String name, double weight, int MoveSpeed, double foodsNeeded) {
         super(name, weight, MoveSpeed, foodsNeeded);
     }
 

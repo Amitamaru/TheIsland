@@ -7,7 +7,7 @@ import com.javarush.marzhiievskyi.entity.organisms.Plants;
 public class Caterpillar extends HerbivorousAnimals {
 
 
-    protected Caterpillar(String name, double weight, int MoveSpeed, double foodsNeeded) {
+    public Caterpillar(String name, double weight, int MoveSpeed, double foodsNeeded) {
         super(name, weight, MoveSpeed, foodsNeeded);
     }
 
