@@ -1,18 +1,16 @@
 package com.javarush.marzhiievskyi.entity.organisms.herbivorous;
 
-import com.javarush.marzhiievskyi.entity.organisms.Animal;
 import com.javarush.marzhiievskyi.entity.organisms.HerbivorousAnimals;
-import com.javarush.marzhiievskyi.entity.organisms.Plants;
 
 public class Buffalo extends HerbivorousAnimals {
 
 
-    public Buffalo(String name, double weight, int MoveSpeed, double foodsNeeded) {
-        super(name, weight, MoveSpeed, foodsNeeded);
+    public Buffalo(String name, String icon, double weight, int maxCountOnCell, int maxSpeed, double needFood) {
+        super(name, icon, weight, maxCountOnCell, maxSpeed, needFood);
     }
 
     @Override
-    public void eat(Plants plants) {
+    public void eat() {
 
     }
 
@@ -22,7 +20,7 @@ public class Buffalo extends HerbivorousAnimals {
     }
 
     @Override
-    public Animal multiply(Animal animal) {
-        return null;
+    public void multiply() {
+
     }
 }

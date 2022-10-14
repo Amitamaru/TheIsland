@@ -1,13 +1,9 @@
 package com.javarush.marzhiievskyi.entity.organisms;
 
+public abstract class HerbivorousAnimals extends Animals{
 
-public abstract class HerbivorousAnimals extends Animal {
 
-    public HerbivorousAnimals(String name, double weight, int MoveSpeed, double foodsNeeded) {
-        super(name, weight, MoveSpeed, foodsNeeded);
+    public HerbivorousAnimals(String name, String icon, double weight, int maxCountOnCell, int maxSpeed, double needFood) {
+        super(name, icon, weight, maxCountOnCell, maxSpeed, needFood);
     }
-
-    abstract public void eat(Plants plants);
-    abstract public void move();
-    abstract public Animal multiply(Animal animal);
 }

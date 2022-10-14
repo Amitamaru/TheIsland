@@ -1,7 +1,7 @@
 #parameters for any lives
 #Carnivorous
 organismParametersList:
-- name: Woolf
+- name: woolf
   icon: "\uD83D\uDC3A"
   weight: 50
   maxCountOnCell: 30

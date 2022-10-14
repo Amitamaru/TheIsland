@@ -1,18 +1,15 @@
 package com.javarush.marzhiievskyi.entity.organisms.carnivorous;
 
-import com.javarush.marzhiievskyi.entity.organisms.Animal;
 import com.javarush.marzhiievskyi.entity.organisms.CarnivorousAnimals;
-import com.javarush.marzhiievskyi.entity.organisms.HerbivorousAnimals;
 
 public class Snake extends CarnivorousAnimals {
 
-
-    protected Snake(String name, double weight, int MoveSpeed, double foodsNeeded) {
-        super(name, weight, MoveSpeed, foodsNeeded);
+    public Snake(String name, String icon, double weight, int maxCountOnCell, int maxSpeed, double needFood) {
+        super(name, icon, weight, maxCountOnCell, maxSpeed, needFood);
     }
 
     @Override
-    public void eat(HerbivorousAnimals herbivorousAnimals) {
+    public void eat() {
 
     }
 
@@ -22,7 +19,7 @@ public class Snake extends CarnivorousAnimals {
     }
 
     @Override
-    public Animal multiply(Animal animal) {
-        return null;
+    public void multiply() {
+
     }
 }
