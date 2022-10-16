@@ -20,4 +20,20 @@ public abstract class Plants extends Organism implements Reproductionable {
     public String toString() {
         return icon;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public int getMaxCountOnCell() {
+        return maxCountOnCell;
+    }
 }

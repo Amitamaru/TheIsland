@@ -4,41 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a72cef5-3c4d-40bf-8e03-9077f2cc5d51" name="Changes" comment="commit 12.10.2022 (2)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Animals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/actions/Eatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/actions/Movable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/actions/Reproductionable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/utils/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/utils/EnumOrganisms.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/utils/gettingParameters/Constants.java" afterDir="false" />
+    <list default="true" id="4a72cef5-3c4d-40bf-8e03-9077f2cc5d51" name="Changes" comment="modified all classes&#10;now almost correct working getting params from yaml and creating list with prototypes&#10;&#10;need work with: &#10;field/cell&#10;implementation action (eat and multiply should return something like a result)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/wiev/ConsoleView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/field/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/CarnivorousAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/CarnivorousAnimals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/HerbivorousAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/HerbivorousAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Animals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Animals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Organism.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Organism.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/Plants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Bear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Bear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Fox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Snake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Woolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/carnivorous/Woolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Boar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Boar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Buffalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Buffalo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Caterpillar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Caterpillar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Deer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Deer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Duck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Duck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Goat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Goat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Horse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Rabbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Rabbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Sheep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/herbivorous/Sheep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/plants/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/entity/organisms/plants/Grass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/services/OrganismFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javarush/marzhiievskyi/services/OrganismFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/OrganismsParameters.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/OrganismsParameters.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +104,8 @@
       <workItem from="1665594255625" duration="9223000" />
       <workItem from="1665681011508" duration="533000" />
       <workItem from="1665682254901" duration="11000" />
-      <workItem from="1665762366520" duration="15726000" />
+      <workItem from="1665762366520" duration="15787000" />
+      <workItem from="1665916160776" duration="8333000" />
     </task>
     <task id="LOCAL-00001" summary="commit 12.10.2022">
       <created>1665560706114</created>
@@ -146,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665603895690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="modified all classes&#10;now almost correct working getting params from yaml and creating list with prototypes&#10;&#10;need work with: &#10;field/cell&#10;implementation action (eat and multiply should return something like a result)">
+      <created>1665779344894</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665779344894</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit 12.10.2022" />
     <MESSAGE value="commit 12.10.2022 (2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 12.10.2022 (2)" />
+    <MESSAGE value="modified all classes&#10;now almost correct working getting params from yaml and creating list with prototypes&#10;&#10;need work with: &#10;field/cell&#10;implementation action (eat and multiply should return something like a result)" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified all classes&#10;now almost correct working getting params from yaml and creating list with prototypes&#10;&#10;need work with: &#10;field/cell&#10;implementation action (eat and multiply should return something like a result)" />
   </component>
 </project>

@@ -1,27 +1,25 @@
 package com.javarush.marzhiievskyi.entity.field;
 
-import com.javarush.marzhiievskyi.entity.organisms.Animals;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Cell {
-    private Organism organism;
-    private int count;
 
-    public Cell(Organism organism) {
-        this.organism = organism;
+
+    private Map<Organism , Set<Organism>> mapOfAnimalsOPnCell;
+
+    public Cell(Map<Organism, Set<Organism>> mapOfAnimalsOPnCell) {
+        this.mapOfAnimalsOPnCell = mapOfAnimalsOPnCell;
     }
 
 
-    public Organism getOrganism() {
-        return organism;
+    public Map<Organism, Set<Organism>> getMapOfAnimalsOnCell() {
+        return mapOfAnimalsOPnCell;
     }
 
-    @Override
-    public String toString() {
-
-        return "[" + organism + "]";
+    public void setMapOfAnimalsOPnCell(Map<Organism, Set<Organism>> mapOfAnimalsOPnCell) {
+        this.mapOfAnimalsOPnCell = mapOfAnimalsOPnCell;
     }
 }

@@ -7,31 +7,59 @@ import com.javarush.marzhiievskyi.services.OrganismFactory;
 
 import java.io.IOException;
 
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Field {
-    ;
-    private final Cell[][] fieldIsland = new Cell[20][100];
+    private final Cell[][] fieldIsland;
 
-    OrganismFactory organismFactory = new OrganismFactory();
+    public Field(int rows, int columns) {
+        fieldIsland = new Cell[rows][columns];
+    }
 
+    public Cell[][] getFieldIsland() {
+        return fieldIsland;
+    }
 
     public void initField() throws IOException {
 
-        int size = organismFactory.gettingSetOfOrganisms().size();
-
-
         for (int i = 0; i < fieldIsland.length; i++) {
             for (int j = 0; j < fieldIsland[i].length; j++) {
-
-                int random = ThreadLocalRandom.current().nextInt(size);
-                Organism o = organismFactory.gettingSetOfOrganisms().get(random);
-                Cell  cell = new Cell(o);
-
-                System.out.print(cell);
+                fieldIsland[i][j] = new Cell(generateOrganismsInCell());
             }
-            System.out.println();
         }
     }
+
+    private Map<Organism, Set<Organism>> generateOrganismsInCell() throws IOException {
+        OrganismFactory organismFactory = new OrganismFactory();
+        Map<Organism, Set<Organism>> organisms = new HashMap<>();
+        List<Organism> gotPrototypes = organismFactory.gettingSetOfOrganisms();
+
+        for (var organism : gotPrototypes) {
+            if (organism instanceof Animals) {
+                int count = ThreadLocalRandom.current().nextInt(0, ((Animals) organism).getMaxCountOnCell());
+                if (count != 0) {
+                    organisms.put(organism, cloneOrganism(organism, count));
+                }
+            }
+            if (organism instanceof Plants) {
+                int count = ThreadLocalRandom.current().nextInt(0, ((Plants) organism).getMaxCountOnCell());
+                if (count != 0) {
+                    organisms.put(organism, cloneOrganism(organism, count));
+                }
+            }
+        }
+        return organisms;
+    }
+
+    private Set<Organism> cloneOrganism(Organism type, int count) {
+        Set<Organism> organismSet = new HashSet<>();
+
+        for (int i = 0; i < count; i++) {
+            organismSet.add(type.clone());
+        }
+        return organismSet;
+    }
+
 
 }

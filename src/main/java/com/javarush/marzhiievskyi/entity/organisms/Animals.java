@@ -27,4 +27,28 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     public String toString() {
         return icon;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public int getMaxCountOnCell() {
+        return maxCountOnCell;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public double getNeedFood() {
+        return needFood;
+    }
 }
