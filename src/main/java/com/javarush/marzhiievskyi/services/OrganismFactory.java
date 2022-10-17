@@ -13,8 +13,6 @@ import com.javarush.marzhiievskyi.utils.gettingParameters.ParametersOfAllOrganis
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.security.PublicKey;
 import java.util.*;
 
 public class OrganismFactory {
@@ -25,7 +23,7 @@ public class OrganismFactory {
     public List<Organism> gettingSetOfOrganisms() throws IOException {
         List<Organism> organismSet = new ArrayList<>();
         ObjectMapper mapper = new YAMLMapper();
-        ParametersOfAllOrganisms paramOfAllOrg = mapper.readValue(new File("src/main/resources/OrganismsParameters.yaml"), ParametersOfAllOrganisms.class);
+        ParametersOfAllOrganisms paramOfAllOrg = mapper.readValue(new File(PATH_OF_PROPERTIES_ORGANISMS), ParametersOfAllOrganisms.class);
         List<OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
         organismParametersList.forEach(organism -> {
             String name = organism.getName();

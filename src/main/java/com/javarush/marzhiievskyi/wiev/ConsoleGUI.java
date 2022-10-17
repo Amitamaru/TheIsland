@@ -4,12 +4,12 @@ import com.javarush.marzhiievskyi.entity.field.Cell;
 import com.javarush.marzhiievskyi.entity.field.Field;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
 
-public class ConsoleView {
+public class ConsoleGUI {
     private Field field;
 
     public void initialisation(int rows, int cols) throws IOException {
@@ -28,7 +28,10 @@ public class ConsoleView {
                 for (var organism : mapOfAnimalsOPnCell.entrySet()) {
                     String type = organism.getKey().toString();
                     int count = organism.getValue().size();
-                    System.out.print(" " + type + " : " + count + "; ");
+
+                        System.out.print(type + " : " + (new DecimalFormat("000").format(count)) + "; ");
+
+
                 }
 
                 System.out.print(("] "));

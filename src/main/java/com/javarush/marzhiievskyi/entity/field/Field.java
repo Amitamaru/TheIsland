@@ -41,11 +41,17 @@ public class Field {
                 if (count != 0) {
                     organisms.put(organism, cloneOrganism(organism, count));
                 }
+                else {
+                    organisms.put(organism, new HashSet<>(0));
+                }
             }
             if (organism instanceof Plants) {
                 int count = ThreadLocalRandom.current().nextInt(0, ((Plants) organism).getMaxCountOnCell());
                 if (count != 0) {
                     organisms.put(organism, cloneOrganism(organism, count));
+                }
+                else {
+                    organisms.put(organism, new HashSet<>(0));
                 }
             }
         }

@@ -12,7 +12,7 @@ public class Bear extends CarnivorousAnimals {
 
     @Override
     public void eat() {
-        System.out.println(this.getClass().getSimpleName() + " is eating");
+
     }
 
     @Override
