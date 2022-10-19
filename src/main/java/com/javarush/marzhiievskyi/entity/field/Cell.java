@@ -23,4 +23,12 @@ public class Cell {
     public void setMapOfAnimalsOPnCell(Map<Organism, Set<Organism>> mapOfAnimalsOPnCell) {
         this.mapOfAnimalsOPnCell = mapOfAnimalsOPnCell;
     }
+
+    public List<Cell> getMoveList() {
+        return moveList;
+    }
+
+    public void setMoveList(List<Cell> moveList) {
+        this.moveList = moveList;
+    }
 }

@@ -76,11 +76,6 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     public void multiply() {
 
     }
-
-    public boolean isDead() {
-        return this.currentWeight < (this.maxWeight - this.needFood);
-    }
-
     public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
         for (var org : mapOfAnimalsOnCell.entrySet()) {
@@ -90,4 +85,9 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
         }
         cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
     }
+    public boolean isDead() {
+        return !(this.currentWeight < (this.maxWeight - this.needFood));
+    }
+    //TODO make remove in gameWorker
+
 }

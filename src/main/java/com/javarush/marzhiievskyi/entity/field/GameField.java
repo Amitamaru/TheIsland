@@ -32,7 +32,7 @@ public class GameField {
     public Cell[][] getFieldIsland() {
         return fieldIsland;
     }
-
+    //TODO create for every Cell list with moves
     public void initField() throws IOException {
 
         for (int i = 0; i < fieldIsland.length; i++) {
