@@ -11,12 +11,23 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameField {
+    private static GameField gameField;
     private final Cell[][] fieldIsland;
 
-    public GameField(int rows, int columns) {
+    private GameField(int rows, int columns) {
         fieldIsland = new Cell[rows][columns];
     }
 
+    public static GameField getGameField(int rows, int columns) {
+        if (gameField == null) {
+            gameField = new GameField(rows, columns);
+        }
+        return gameField;
+    }
+
+    public static GameField getGameField() {
+        return gameField;
+    }
 
     public Cell[][] getFieldIsland() {
         return fieldIsland;

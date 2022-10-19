@@ -2,7 +2,6 @@ package com.javarush.marzhiievskyi.entity.organisms;
 
 
 import com.javarush.marzhiievskyi.entity.field.Cell;
-import com.javarush.marzhiievskyi.entity.field.GameField;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Eatable;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Movable;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Reproductionable;
@@ -13,21 +12,21 @@ import java.util.Set;
 public abstract class Animals extends Organism implements Eatable, Movable, Reproductionable {
     private final String name;
     private final String icon;
-    private final double weight;
+    private final double maxWeight;
     private final int maxCountOnCell;
     private final int maxSpeed;
     private final double needFood;
     private double currentWeight;
 
 
-    public Animals(String name, String icon, double weight, int maxCountOnCell, int maxSpeed, double needFood) {
+    public Animals(String name, String icon, double maxWeight, int maxCountOnCell, int maxSpeed, double needFood) {
         this.name = name;
         this.icon = icon;
-        this.weight = weight;
+        this.maxWeight = maxWeight;
         this.maxCountOnCell = maxCountOnCell;
         this.maxSpeed = maxSpeed;
         this.needFood = needFood;
-        this.currentWeight = weight;
+        this.currentWeight = maxWeight;
     }
 
     @Override
@@ -43,8 +42,8 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
         return icon;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getMaxWeight() {
+        return maxWeight;
     }
 
     public int getMaxCountOnCell() {
@@ -59,20 +58,13 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
         return needFood;
     }
 
-    @Override
-    public void eat(Organism organism) {
-//       // Cell currentCell = GameField;//TODO get current cell from GameField HOW? =/
-//
-//        //TODO get parameter that THIS.Organism can eat organism
-//        if (!isDead()) {
-//            //TODO do processing eating
-//        } else {
-//            this.remove(currentCell);
-//        }
-
-
+    public double getCurrentWeight() {
+        return currentWeight;
     }
 
+    public void setCurrentWeight(double currentWeight) {
+        this.currentWeight = currentWeight;
+    }
 
     @Override
     public void move() {
@@ -85,14 +77,14 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
 
     }
 
-    private boolean isDead() {
-        return this.currentWeight < (this.weight - this.needFood);
+    public boolean isDead() {
+        return this.currentWeight < (this.maxWeight - this.needFood);
     }
 
-    private void remove(Cell cell) {
+    public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
         for (var org : mapOfAnimalsOnCell.entrySet()) {
-            if (( (Animals) org.getKey()).getName().equalsIgnoreCase(this.name)) {
+            if (((Animals) org.getKey()).getName().equalsIgnoreCase(this.name)) {
                 org.getValue().remove(this);
             }
         }

@@ -13,7 +13,7 @@ public class ConsoleGUI {
     private GameField gameField;
 
     public void initialisation(int rows, int cols) throws IOException {
-        gameField = new GameField(rows, cols);
+        gameField = GameField.getGameField(rows, cols);
         gameField.initField();
     }
 

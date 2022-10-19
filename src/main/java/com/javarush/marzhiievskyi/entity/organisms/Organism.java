@@ -17,4 +17,6 @@ public abstract class Organism implements Cloneable {
     }
 
 
+
+
 }
