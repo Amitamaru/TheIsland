@@ -2,6 +2,7 @@ package com.javarush.marzhiievskyi.services;
 
 
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
+import com.javarush.marzhiievskyi.wiev.ConsoleGUI;
 
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class ThreadsWorker {
     private final int cores;
 
 
-    private final IslandFactory islandFactory = new IslandFactory(2, 2);
+    private final IslandFactory islandFactory = new IslandFactory(20, 100);
 
 
     public ThreadsWorker(int start_from, int period) {
@@ -25,7 +26,7 @@ public class ThreadsWorker {
         PERIOD = period;
         cores = Runtime.getRuntime().availableProcessors();
     }
-
+    ConsoleGUI consoleGUI = new ConsoleGUI();
 
     public void startExecutor() {
 
@@ -42,6 +43,13 @@ public class ThreadsWorker {
             ExecutorService service = Executors.newFixedThreadPool(listOfPrototypes.size());
             workerList.forEach(service::submit);
             service.shutdown();
+//            try {
+//                if ( threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
+//                    consoleGUI.printField(islandFactory.getGameField());
+//                }
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
         }, START_FROM, PERIOD, TimeUnit.SECONDS);
 
 
