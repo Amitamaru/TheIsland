@@ -9,8 +9,4 @@ public class Grass extends Plants {
         super(name, icon, weight, maxCountOnCell);
     }
 
-    @Override
-    public void multiply() {
-
-    }
 }

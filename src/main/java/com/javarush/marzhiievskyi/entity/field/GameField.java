@@ -7,10 +7,13 @@ import com.javarush.marzhiievskyi.services.OrganismFactory;
 
 import java.io.IOException;
 
+import java.security.PrivateKey;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameField {
+
+    private final OrganismFactory organismFactory = new OrganismFactory();
     private static GameField gameField;
     private final Cell[][] fieldIsland;
 
@@ -25,35 +28,33 @@ public class GameField {
         return gameField;
     }
 
-    public static GameField getGameField() {
-        return gameField;
-    }
 
     public Cell[][] getFieldIsland() {
         return fieldIsland;
     }
-    //TODO create for every Cell list with moves
-    public void initField() throws IOException {
 
+    //TODO create for every Cell list with moves
+    public void initField() {
         for (int i = 0; i < fieldIsland.length; i++) {
             for (int j = 0; j < fieldIsland[i].length; j++) {
                 fieldIsland[i][j] = new Cell(generateOrganismsInCell());
             }
         }
     }
+    public List<Organism> getListOfPrototypes() {
+        return organismFactory.getListOfPrototypes();
+    }
+    private Map<Organism, Set<Organism>> generateOrganismsInCell() {
 
-    private Map<Organism, Set<Organism>> generateOrganismsInCell() throws IOException {
-        OrganismFactory organismFactory = new OrganismFactory();
         Map<Organism, Set<Organism>> organisms = new HashMap<>();
-        List<Organism> gotPrototypes = organismFactory.gettingSetOfOrganisms();
+        List<Organism> gotPrototypes = getListOfPrototypes();
 
         for (var organism : gotPrototypes) {
             if (organism instanceof Animals) {
                 int count = ThreadLocalRandom.current().nextInt(0, ((Animals) organism).getMaxCountOnCell());
                 if (count != 0) {
                     organisms.put(organism, cloneOrganism(organism, count));
-                }
-                else {
+                } else {
                     organisms.put(organism, new HashSet<>(0));
                 }
             }
@@ -61,8 +62,7 @@ public class GameField {
                 int count = ThreadLocalRandom.current().nextInt(0, ((Plants) organism).getMaxCountOnCell());
                 if (count != 0) {
                     organisms.put(organism, cloneOrganism(organism, count));
-                }
-                else {
+                } else {
                     organisms.put(organism, new HashSet<>(0));
                 }
             }

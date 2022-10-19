@@ -10,18 +10,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class ConsoleGUI {
-    private GameField gameField;
 
-    public void initialisation(int rows, int cols) throws IOException {
-        gameField = GameField.getGameField(rows, cols);
-        gameField.initField();
-    }
 
-    public void printField() {
+    public void printField(GameField gameField) {
         Cell[][] fieldIsland = gameField.getFieldIsland();
-        for (int i = 0; i < fieldIsland.length; i++) {
-            for (int j = 0; j < fieldIsland[i].length; j++) {
-                Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = fieldIsland[i][j].getMapOfAnimalsOnCell();
+        for (Cell[] cells : fieldIsland) {
+            for (Cell cell : cells) {
+                Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = cell.getMapOfAnimalsOnCell();
 
                 System.out.print("[");
 
@@ -29,7 +24,7 @@ public class ConsoleGUI {
                     String type = organism.getKey().toString();
                     int count = organism.getValue().size();
 
-                        System.out.print(type + " : " + (new DecimalFormat("000").format(count)) + "; ");
+                    System.out.print(type + " : " + (new DecimalFormat("000").format(count)) + "; ");
 
 
                 }

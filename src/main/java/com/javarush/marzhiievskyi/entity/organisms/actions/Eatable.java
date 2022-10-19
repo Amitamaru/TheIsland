@@ -5,5 +5,5 @@ import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
 public interface Eatable {
 
-    void eat(Organism organism, Cell cell);
+    void eat(Cell cell);
 }

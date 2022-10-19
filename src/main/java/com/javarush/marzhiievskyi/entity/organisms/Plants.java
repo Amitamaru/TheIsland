@@ -53,6 +53,11 @@ public abstract class Plants extends Organism implements Reproductionable {
     }
 
 
+    @Override
+    public void multiply(Cell cell) {
+        System.out.println(this.getIcon() + " reproducing  " + Thread.currentThread());
+    }
+
     public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
         for (var org : mapOfAnimalsOnCell.entrySet()) {

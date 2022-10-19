@@ -17,11 +17,24 @@ import java.util.*;
 
 public class OrganismFactory {
 
-    public List<Organism> gettingSetOfOrganisms() throws IOException {
+    private final List<Organism> listOfPrototypes = gettingSetOfOrganisms();
+
+    public List<Organism> getListOfPrototypes() {
+        return listOfPrototypes;
+    }
+
+
+
+    public List<Organism> gettingSetOfOrganisms() {
         List<Organism> organismSet = new ArrayList<>();
         ObjectMapper mapper = new YAMLMapper();
 
-        ParametersOfAllOrganisms paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), ParametersOfAllOrganisms.class);
+        ParametersOfAllOrganisms paramOfAllOrg = null;
+        try {
+            paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), ParametersOfAllOrganisms.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         List<ParametersOfAllOrganisms.OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
         organismParametersList.forEach(organism -> {
             String name = organism.getName();

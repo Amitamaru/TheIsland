@@ -66,14 +66,36 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
         this.currentWeight = currentWeight;
     }
 
+
     @Override
-    public void move() {
+    public void eat(Cell currentCell) {
+//        Animals animal = (Animals) organism;
+//        //TODO get parameter that THIS.Organism can eat organism
+//        if (isDead()) {
+//            //our organism THIS is trying to eat organism from argument
+//            double  weightOfOrganism = animal.getCurrentWeight();
+//            double  currentWeight = this.getCurrentWeight() + weightOfOrganism;
+//            this.setCurrentWeight(Math.min(currentWeight, this.getMaxWeight()));
+//            ((Animals) organism).remove(currentCell);
+//        } else {
+//            this.remove(currentCell);
+//        }
+        System.out.println(this.getIcon() + " eating  " + Thread.currentThread());
+
+    }
+
+
+
+    @Override
+    public void move(Cell cell) {
         this.currentWeight = currentWeight - 5;
+        System.out.println(this.getIcon() + " moving  " + Thread.currentThread());
 
     }
 
     @Override
-    public void multiply() {
+    public void multiply(Cell cell) {
+        System.out.println(this.getIcon() + " reproducing  "+ Thread.currentThread());
 
     }
     public void remove(Cell cell) {
