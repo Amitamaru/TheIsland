@@ -10,12 +10,13 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Field {
+public class GameField {
     private final Cell[][] fieldIsland;
 
-    public Field(int rows, int columns) {
+    public GameField(int rows, int columns) {
         fieldIsland = new Cell[rows][columns];
     }
+
 
     public Cell[][] getFieldIsland() {
         return fieldIsland;

@@ -12,7 +12,7 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         ConsoleGUI consoleGUI = new ConsoleGUI();
-        consoleGUI.initialisation(20, 100);
+        consoleGUI.initialisation(4, 4);
         consoleGUI.printField();
     }
 }

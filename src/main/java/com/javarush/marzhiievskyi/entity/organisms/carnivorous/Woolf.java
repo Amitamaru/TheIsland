@@ -10,18 +10,5 @@ public class Woolf extends CarnivorousAnimals {
         super(name, icon, weight, maxCountOnCell, maxSpeed, needFood);
     }
 
-    @Override
-    public void eat() {
 
-    }
-
-    @Override
-    public void move() {
-
-    }
-
-    @Override
-    public void multiply() {
-
-    }
 }

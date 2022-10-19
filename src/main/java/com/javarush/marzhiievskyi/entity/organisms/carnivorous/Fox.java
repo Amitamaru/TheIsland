@@ -10,18 +10,5 @@ public class Fox extends CarnivorousAnimals {
     }
 
 
-    @Override
-    public void eat() {
 
-    }
-
-    @Override
-    public void move() {
-
-    }
-
-    @Override
-    public void multiply() {
-
-    }
 }

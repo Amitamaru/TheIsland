@@ -7,8 +7,8 @@ import com.javarush.marzhiievskyi.entity.organisms.Organism;
 import com.javarush.marzhiievskyi.entity.organisms.carnivorous.*;
 import com.javarush.marzhiievskyi.entity.organisms.herbivorous.*;
 import com.javarush.marzhiievskyi.entity.organisms.plants.Grass;
+import com.javarush.marzhiievskyi.utils.Constants;
 import com.javarush.marzhiievskyi.utils.EnumOrganisms;
-import com.javarush.marzhiievskyi.utils.gettingParameters.OrganismParameters;
 import com.javarush.marzhiievskyi.utils.gettingParameters.ParametersOfAllOrganisms;
 
 import java.io.File;
@@ -17,14 +17,12 @@ import java.util.*;
 
 public class OrganismFactory {
 
-
-    private final String PATH_OF_PROPERTIES_ORGANISMS = "src/main/resources/OrganismsParameters.yaml";
-
     public List<Organism> gettingSetOfOrganisms() throws IOException {
         List<Organism> organismSet = new ArrayList<>();
         ObjectMapper mapper = new YAMLMapper();
-        ParametersOfAllOrganisms paramOfAllOrg = mapper.readValue(new File(PATH_OF_PROPERTIES_ORGANISMS), ParametersOfAllOrganisms.class);
-        List<OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
+
+        ParametersOfAllOrganisms paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), ParametersOfAllOrganisms.class);
+        List<ParametersOfAllOrganisms.OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
         organismParametersList.forEach(organism -> {
             String name = organism.getName();
             String icon = organism.getIcon();

@@ -1,7 +1,7 @@
 package com.javarush.marzhiievskyi.wiev;
 
 import com.javarush.marzhiievskyi.entity.field.Cell;
-import com.javarush.marzhiievskyi.entity.field.Field;
+import com.javarush.marzhiievskyi.entity.field.GameField;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
 import java.io.IOException;
@@ -10,15 +10,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class ConsoleGUI {
-    private Field field;
+    private GameField gameField;
 
     public void initialisation(int rows, int cols) throws IOException {
-        field = new Field(rows, cols);
-        field.initField();
+        gameField = new GameField(rows, cols);
+        gameField.initField();
     }
 
     public void printField() {
-        Cell[][] fieldIsland = field.getFieldIsland();
+        Cell[][] fieldIsland = gameField.getFieldIsland();
         for (int i = 0; i < fieldIsland.length; i++) {
             for (int j = 0; j < fieldIsland[i].length; j++) {
                 Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = fieldIsland[i][j].getMapOfAnimalsOnCell();

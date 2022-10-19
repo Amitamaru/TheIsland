@@ -6,18 +6,4 @@ public abstract class CarnivorousAnimals extends Animals {
         super(name, icon, weight, maxCountOnCell, maxSpeed, needFood);
     }
 
-    @Override
-    public void eat() {
-        System.out.println( super.getIcon() + " is eating another animal");
-    }
-
-    @Override
-    public void move() {
-        System.out.println( super.getIcon() + " is moving");
-    }
-
-    @Override
-    public void multiply() {
-        System.out.println(super.getIcon() + " is multiplying");
-    }
 }

@@ -2,11 +2,12 @@ package com.javarush.marzhiievskyi.entity.field;
 
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class Cell {
-
+    private List<Cell> moveList;
 
     private Map<Organism , Set<Organism>> mapOfAnimalsOPnCell;
 
