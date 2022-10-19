@@ -4,7 +4,6 @@ package com.javarush.marzhiievskyi.services;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;

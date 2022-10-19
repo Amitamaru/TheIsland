@@ -1,6 +1,5 @@
 package com.javarush.marzhiievskyi.utils.gettingParameters;
 
-import com.javarush.marzhiievskyi.entity.field.GameField;
 
 public class ParametersOfIslandField {
     private int rows;

@@ -4,7 +4,7 @@ import com.javarush.marzhiievskyi.entity.field.Cell;
 import com.javarush.marzhiievskyi.entity.field.GameField;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 
-import java.io.IOException;
+
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
