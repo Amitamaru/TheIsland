@@ -29,11 +29,6 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
         this.currentWeight = maxWeight;
     }
 
-    @Override
-    public String toString() {
-        return icon;
-    }
-
     public String getName() {
         return name;
     }
@@ -80,7 +75,6 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
 //        } else {
 //            this.remove(currentCell);
 //        }
-        System.out.println(this.getIcon() + " eating  " + Thread.currentThread());
 
     }
 
@@ -89,13 +83,13 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     @Override
     public void move(Cell cell) {
         this.currentWeight = currentWeight - 5;
-        System.out.println(this.getIcon() + " moving  " + Thread.currentThread());
+
 
     }
 
     @Override
     public void multiply(Cell cell) {
-        System.out.println(this.getIcon() + " reproducing  "+ Thread.currentThread());
+
 
     }
     public void remove(Cell cell) {
@@ -112,4 +106,9 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     }
     //TODO make remove in gameWorker
 
+
+    @Override
+    public String toString() {
+        return icon;
+    }
 }

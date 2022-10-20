@@ -12,5 +12,8 @@ public abstract class Organism implements Cloneable {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

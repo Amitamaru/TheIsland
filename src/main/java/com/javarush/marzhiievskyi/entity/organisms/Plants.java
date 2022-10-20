@@ -22,11 +22,6 @@ public abstract class Plants extends Organism implements Reproductionable {
         this.maxCountOnCell = maxCountOnCell;
     }
 
-    @Override
-    public String toString() {
-        return icon;
-    }
-
     public String getName() {
         return name;
     }
@@ -55,7 +50,7 @@ public abstract class Plants extends Organism implements Reproductionable {
 
     @Override
     public void multiply(Cell cell) {
-        System.out.println(this.getIcon() + " reproducing  " + Thread.currentThread());
+
     }
 
     public void remove(Cell cell) {
@@ -66,5 +61,10 @@ public abstract class Plants extends Organism implements Reproductionable {
             }
         }
         cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
+    }
+
+    @Override
+    public String toString() {
+        return icon;
     }
 }

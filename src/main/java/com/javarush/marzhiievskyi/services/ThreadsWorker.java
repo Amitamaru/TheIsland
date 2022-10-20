@@ -13,7 +13,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadsWorker {
-    private final int START_FROM;
+    private final int DELAY;
     private final int PERIOD;
     private final int cores;
 
@@ -22,14 +22,14 @@ public class ThreadsWorker {
 
 
     public ThreadsWorker(int start_from, int period) {
-        START_FROM = start_from;
+        DELAY = start_from;
         PERIOD = period;
         cores = Runtime.getRuntime().availableProcessors();
     }
+
     ConsoleGUI consoleGUI = new ConsoleGUI();
 
     public void startExecutor() {
-
         List<OrganismsWorker> workerList = new ArrayList<>();
 
         List<Organism> listOfPrototypes = islandFactory.getGameField().getListOfPrototypes();
@@ -43,14 +43,14 @@ public class ThreadsWorker {
             ExecutorService service = Executors.newFixedThreadPool(listOfPrototypes.size());
             workerList.forEach(service::submit);
             service.shutdown();
-//            try {
-//                if ( threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
-//                    consoleGUI.printField(islandFactory.getGameField());
-//                }
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-        }, START_FROM, PERIOD, TimeUnit.SECONDS);
+            try {
+                if (threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
+                    consoleGUI.printField(islandFactory.getGameField());
+                }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }, DELAY, PERIOD, TimeUnit.SECONDS);
 
 
     }
