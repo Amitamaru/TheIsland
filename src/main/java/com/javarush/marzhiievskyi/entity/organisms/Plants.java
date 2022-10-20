@@ -50,7 +50,7 @@ public abstract class Plants extends Organism implements Reproductionable {
 
     @Override
     public void multiply(Cell cell) {
-
+        System.out.println(this.icon + " multiply " + Thread.currentThread().getName());
     }
 
     public void remove(Cell cell) {

@@ -75,7 +75,7 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
 //        } else {
 //            this.remove(currentCell);
 //        }
-
+        System.out.println(this.icon + " eat " + Thread.currentThread().getName());
     }
 
 
@@ -83,11 +83,12 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     @Override
     public void move(Cell cell) {
         this.currentWeight = currentWeight - 5;
-
+        System.out.println(this.icon + " move " + Thread.currentThread().getName());
     }
 
     @Override
     public void multiply(Cell cell) {
+        System.out.println(this.icon + " multiply " + Thread.currentThread().getName());
     }
     public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();

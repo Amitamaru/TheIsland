@@ -41,6 +41,4 @@ public class Cell {
     public void setMoveList(List<Cell> moveList) {
         this.moveList = moveList;
     }
-
-
 }
