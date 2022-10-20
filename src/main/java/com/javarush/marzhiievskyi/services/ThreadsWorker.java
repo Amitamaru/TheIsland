@@ -20,7 +20,6 @@ public class ThreadsWorker {
 
     private final IslandFactory islandFactory = new IslandFactory(2, 2);
 
-
     public ThreadsWorker(int start_from, int period) {
         DELAY = start_from;
         PERIOD = period;
@@ -41,15 +40,17 @@ public class ThreadsWorker {
         ScheduledExecutorService threadsPool = Executors.newScheduledThreadPool(cores);
         threadsPool.scheduleAtFixedRate(() -> {
             ExecutorService service = Executors.newFixedThreadPool(listOfPrototypes.size());
-            workerList.forEach(service::submit);
+            workerList.forEach(service::execute);
             service.shutdown();
             try {
-                threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS);
-                    consoleGUI.printField(islandFactory.getGameField());
-
+               if(service.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
+                   consoleGUI.printField(islandFactory.getGameField());
+                   consoleGUI.printStatistic(islandFactory.getGameField());
+               }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+
         }, DELAY, PERIOD, TimeUnit.SECONDS);
 
 
