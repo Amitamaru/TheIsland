@@ -31,19 +31,19 @@ public class ConsoleGUI {
             System.out.println();
         }
     }
-
+//TODO in future get statistic by game field
     public void printStatistic(GameField gameField) {
         Cell[][] fieldIsland = gameField.getFieldIsland();
-
         for (Cell[] cells : fieldIsland) {
             for (Cell cell : cells) {
-
                 Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+                System.out.println(cell);
+                mapOfAnimalsOnCell.forEach((key, value) -> {
 
-
-
-
+                    System.out.println(key +" "+ value.size());
+                });
             }
         }
+
     }
 }
