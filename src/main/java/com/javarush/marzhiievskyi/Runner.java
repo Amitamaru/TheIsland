@@ -8,7 +8,7 @@ public class Runner {
 
 
     public static void main(String[] args) {
-        ThreadsWorker threadsWorker = new ThreadsWorker(1, 5);
+        ThreadsWorker threadsWorker = new ThreadsWorker(0, 2);
         threadsWorker.startExecutor();
 
     }

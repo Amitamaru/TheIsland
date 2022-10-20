@@ -18,7 +18,7 @@ public class ThreadsWorker {
     private final int cores;
 
 
-    private final IslandFactory islandFactory = new IslandFactory(20, 100);
+    private final IslandFactory islandFactory = new IslandFactory(2, 2);
 
 
     public ThreadsWorker(int start_from, int period) {
@@ -44,9 +44,9 @@ public class ThreadsWorker {
             workerList.forEach(service::submit);
             service.shutdown();
             try {
-                if (threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
+                threadsPool.awaitTermination(PERIOD, TimeUnit.SECONDS);
                     consoleGUI.printField(islandFactory.getGameField());
-                }
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

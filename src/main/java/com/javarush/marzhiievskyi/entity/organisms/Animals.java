@@ -84,13 +84,10 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
     public void move(Cell cell) {
         this.currentWeight = currentWeight - 5;
 
-
     }
 
     @Override
     public void multiply(Cell cell) {
-
-
     }
     public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
