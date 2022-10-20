@@ -2,11 +2,16 @@ package com.javarush.marzhiievskyi.entity.organisms;
 
 import com.javarush.marzhiievskyi.entity.field.Cell;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Reproductionable;
+import com.javarush.marzhiievskyi.entity.organisms.plants.Grass;
+import com.javarush.marzhiievskyi.utils.Constants;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Plants extends Organism implements Reproductionable {
+public abstract class Plants extends Organism {
 
     private final String name;
     private final String icon;
@@ -15,11 +20,15 @@ public abstract class Plants extends Organism implements Reproductionable {
 
     private double currentWeight;
 
+    private final Organism currentType;
+
     public Plants(String name, String icon, double weight, int maxCountOnCell) {
         this.name = name;
         this.icon = icon;
         this.weight = weight;
         this.maxCountOnCell = maxCountOnCell;
+        this.currentWeight = weight;
+        this.currentType = this;
     }
 
     public String getName() {
@@ -50,18 +59,27 @@ public abstract class Plants extends Organism implements Reproductionable {
 
     @Override
     public void multiply(Cell cell) {
-        System.out.println(this.icon + " multiply " + Thread.currentThread().getName());
+        cell.getLock().lock();
+        try {
+            //System.out.println(this.icon + " Multiply " + Thread.currentThread().getName() );
+
+        } finally {
+            cell.getLock().unlock();
+        }
+
+
+
     }
 
-    public void remove(Cell cell) {
-        Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-        for (var org : mapOfAnimalsOnCell.entrySet()) {
-            if (((Plants) org.getKey()).getName().equalsIgnoreCase(this.name)) {
-                org.getValue().remove(this);
-            }
-        }
-        cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
-    }
+//    public void remove(Cell cell) {
+//        Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+//        for (var org : mapOfAnimalsOnCell.entrySet()) {
+//            if (((Plants) org.getKey()).getName().equalsIgnoreCase(this.name)) {
+//                org.getValue().remove(this);
+//            }
+//        }
+//        cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
+//    }
 
     @Override
     public String toString() {

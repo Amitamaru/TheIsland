@@ -18,7 +18,7 @@ public class ThreadsWorker {
     private final int cores;
 
 
-    private final IslandFactory islandFactory = new IslandFactory(20, 100);
+    private final IslandFactory islandFactory = new IslandFactory(2, 2);
 
     public ThreadsWorker(int start_from, int period) {
         DELAY = start_from;

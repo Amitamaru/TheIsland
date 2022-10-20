@@ -41,4 +41,8 @@ public class Cell {
     public void setMoveList(List<Cell> moveList) {
         this.moveList = moveList;
     }
+
+    public void putOrganism(Organism organism, Set<Organism> organisms ) {
+        mapOfAnimalsOPnCell.put(organism, organisms);
+    }
 }

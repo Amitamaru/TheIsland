@@ -1,7 +1,10 @@
 package com.javarush.marzhiievskyi.entity.organisms;
 
 
-public abstract class Organism implements Cloneable {
+import com.javarush.marzhiievskyi.entity.field.Cell;
+import com.javarush.marzhiievskyi.entity.organisms.actions.Reproductionable;
+
+public abstract class Organism implements Cloneable, Reproductionable {
 
     @Override
     public Organism clone() {
@@ -15,5 +18,20 @@ public abstract class Organism implements Cloneable {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public void multiply(Cell cell) {
+
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

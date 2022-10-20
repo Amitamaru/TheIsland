@@ -5,11 +5,14 @@ import com.javarush.marzhiievskyi.entity.field.Cell;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Eatable;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Movable;
 import com.javarush.marzhiievskyi.entity.organisms.actions.Reproductionable;
+import com.javarush.marzhiievskyi.utils.Constants;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Animals extends Organism implements Eatable, Movable, Reproductionable {
+public abstract class Animals extends Organism implements Eatable, Movable {
     private final String name;
     private final String icon;
     private final double maxWeight;
@@ -63,7 +66,7 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
 
 
     @Override
-    public void eat(Cell currentCell) {
+    public void eat(Cell cell) {
 //        Animals animal = (Animals) organism;
 //        //TODO get parameter that THIS.Organism can eat organism
 //        if (isDead()) {
@@ -71,24 +74,43 @@ public abstract class Animals extends Organism implements Eatable, Movable, Repr
 //            double  weightOfOrganism = animal.getCurrentWeight();
 //            double  currentWeight = this.getCurrentWeight() + weightOfOrganism;
 //            this.setCurrentWeight(Math.min(currentWeight, this.getMaxWeight()));
-//            ((Animals) organism).remove(currentCell);
+//            ((Animals) organism).remove(cell);
 //        } else {
-//            this.remove(currentCell);
+//            this.remove(cell);
 //        }
-        System.out.println(this.icon + " eat " + Thread.currentThread().getName());
+        // System.out.println(this.icon + " eat " + Thread.currentThread().getName());
+
+        cell.getLock().lock();
+        try {
+            //System.out.println(this.icon + " Eat " + Thread.currentThread().getName() );
+
+        } finally {
+            cell.getLock().unlock();
+        }
     }
 
 
 
     @Override
     public void move(Cell cell) {
-        this.currentWeight = currentWeight - 5;
-        System.out.println(this.icon + " move " + Thread.currentThread().getName());
+        cell.getLock().lock();
+        try {
+            //System.out.println(this.icon + " Move " + Thread.currentThread().getName() );
+
+        } finally {
+            cell.getLock().unlock();
+        }
     }
 
     @Override
     public void multiply(Cell cell) {
-        System.out.println(this.icon + " multiply " + Thread.currentThread().getName());
+        cell.getLock().lock();
+        try {
+           // System.out.println(this.icon + " Multiply " + Thread.currentThread().getName() );
+
+        } finally {
+            cell.getLock().unlock();
+        }
     }
     public void remove(Cell cell) {
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();

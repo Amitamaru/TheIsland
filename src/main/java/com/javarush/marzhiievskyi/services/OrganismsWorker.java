@@ -34,15 +34,12 @@ public class OrganismsWorker implements Runnable {
     private void organismDoing(Cell cell) {
         cell.getLock().lock();
         try {
-            Map<Organism, Set<Organism>> set = cell.getMapOfAnimalsOnCell();
-            Set<Organism> organismSet = set.get(typeOfOrganism);
+            Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(typeOfOrganism);
             organismSet.forEach(organism -> {
+                organism.multiply(cell);
                 if (organism instanceof Animals) {
                     ((Animals) organism).eat(cell);
                     ((Animals) organism).move(cell);
-                    ((Animals) organism).multiply(cell);
-                } else if (organism instanceof Plants) {
-                    ((Plants) organism).multiply(cell);
                 }
             });
 
