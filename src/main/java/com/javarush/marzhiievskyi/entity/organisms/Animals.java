@@ -21,6 +21,8 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     private final double needFood;
     private double currentWeight;
 
+    private final Organism currentType;
+
 
     public Animals(String name, String icon, double maxWeight, int maxCountOnCell, int maxSpeed, double needFood) {
         this.name = name;
@@ -30,6 +32,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         this.maxSpeed = maxSpeed;
         this.needFood = needFood;
         this.currentWeight = maxWeight;
+        this.currentType = this;
     }
 
     public String getName() {
@@ -78,11 +81,11 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 //        } else {
 //            this.remove(cell);
 //        }
-        // System.out.println(this.icon + " eat " + Thread.currentThread().getName());
+
 
         cell.getLock().lock();
         try {
-            //System.out.println(this.icon + " Eat " + Thread.currentThread().getName() );
+
 
         } finally {
             cell.getLock().unlock();
@@ -95,7 +98,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void move(Cell cell) {
         cell.getLock().lock();
         try {
-            //System.out.println(this.icon + " Move " + Thread.currentThread().getName() );
 
         } finally {
             cell.getLock().unlock();
@@ -106,7 +108,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void multiply(Cell cell) {
         cell.getLock().lock();
         try {
-           // System.out.println(this.icon + " Multiply " + Thread.currentThread().getName() );
+
 
         } finally {
             cell.getLock().unlock();

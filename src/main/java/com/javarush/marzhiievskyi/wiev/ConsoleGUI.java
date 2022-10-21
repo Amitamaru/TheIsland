@@ -24,7 +24,7 @@ public class ConsoleGUI {
                 mapOfAnimalsOPnCell.forEach((key, value) -> {
                     sb.append(" ").append(key.toString()).append(": ").append(value.size());
                 });
-                sb.append(" ]");
+                sb.append(" ]   ");
                 System.out.print(sb);
 
             }

@@ -64,14 +64,13 @@ public abstract class Plants extends Organism {
         try {
             Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
             int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
-            if (organismSet.size() < this.getMaxCountOnCell() && chanceMultiply <= Constants.CHANCE_TO_BIRTH_CHILD) {
+            if (organismSet.size() < this.getMaxCountOnCell() && chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD) {
                 for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_PLANTS; i++) {
                     organismSet.add(this.clone());
                 }
             }
             Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
             mapOfAnimalsOnCell.put(currentType, organismSet);
-
 
         } finally {
            cell.getLock().unlock();
