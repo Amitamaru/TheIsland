@@ -22,7 +22,6 @@ public abstract class Organism implements Cloneable, Reproductionable {
 
     @Override
     public void multiply(Cell cell) {
-
     }
 
     @Override

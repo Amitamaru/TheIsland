@@ -96,20 +96,21 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void multiply(Cell cell) {
         cell.getLock().lock();
         try {
-
+            Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
+            if (organismSet.size() > 1) {
+                int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
+                if (chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD) {
+                    for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_ANIMALS; i++) {
+                        if (organismSet.size() < this.maxCountOnCell) {
+                            organismSet.add(this.clone());
+                        }
+                    }
+                }
+            }
 
         } finally {
             cell.getLock().unlock();
         }
-    }
-    public void remove(Cell cell) {
-        Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-        for (var org : mapOfAnimalsOnCell.entrySet()) {
-            if (((Animals) org.getKey()).getName().equalsIgnoreCase(this.name)) {
-                org.getValue().remove(this);
-            }
-        }
-        cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
     }
     public boolean isDead() {
         return !(this.currentWeight < (this.maxWeight - this.needFood));
