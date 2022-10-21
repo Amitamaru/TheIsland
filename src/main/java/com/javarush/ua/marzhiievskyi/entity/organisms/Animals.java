@@ -95,7 +95,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
             if (!isDead()) {
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 if (organismSet.size() > 1) {
-                    this.currentWeight = this.currentWeight - this.needFood / Constants.WEIGHT_LOSE_PER_ACTION;
+                    this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
                     int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
                     if (chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD) {
 
@@ -104,11 +104,10 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                                 organismSet.add(this.clone());
                             }
                         }
-
                     }
                 }
             } else {
-                remove(this, cell);
+                remove(cell);
             }
         } finally {
             cell.getLock().unlock();
@@ -116,18 +115,18 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
     }
 
-    private void remove(Animals animals, Cell cell) {
-        cell.getMapOfAnimalsOnCell().get(currentType).remove(animals);
+    private void remove(Cell cell) {
+        cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
     }
 
     public boolean isDead() {
         return (this.currentWeight < (this.maxWeight - this.needFood));
     }
-    //TODO make remove in gameWorker
+
 
 
     @Override
     public String toString() {
-        return icon + " w= " + currentWeight + " ";
+        return icon;
     }
 }

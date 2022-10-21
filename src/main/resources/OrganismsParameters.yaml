@@ -103,7 +103,7 @@ organismParametersList:
 - name: caterpillar
   icon: "\uD83D\uDC1B"
   weight: 0.01
-  maxCountOnCell: 1000
+  maxCountOnCell: 999
   maxSpeedCells: 0
   needFood: 0
 

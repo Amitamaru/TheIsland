@@ -5,6 +5,7 @@ import com.javarush.ua.marzhiievskyi.entity.field.GameField;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Organism;
 
 
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public class ConsoleGUI {
                 StringBuilder sb = new StringBuilder("[ ");
                 Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = cell.getMapOfAnimalsOnCell();
                 mapOfAnimalsOPnCell.forEach((key, value) -> {
-                    sb.append(" ").append(key.toString()).append(": ").append(value.size());
+                    sb.append(" ").append(key.toString()).append(": ").append(new DecimalFormat("000").format(value.size()));
                 });
                 sb.append(" ]   ");
                 System.out.print(sb);
@@ -31,17 +32,14 @@ public class ConsoleGUI {
     }
 //TODO in future get statistic by game field
     public void printStatistic(GameField gameField) {
+        int totalOrganisms = 0;
         Cell[][] fieldIsland = gameField.getFieldIsland();
         for (Cell[] cells : fieldIsland) {
             for (Cell cell : cells) {
                 Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-                System.out.println(cell);
-                mapOfAnimalsOnCell.forEach((key, value) -> {
 
-                    System.out.println(key +" "+ value.size());
-                });
             }
         }
-
+        System.out.println(totalOrganisms);
     }
 }
