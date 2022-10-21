@@ -2,6 +2,7 @@ package com.javarush.marzhiievskyi.services;
 
 
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
+import com.javarush.marzhiievskyi.services.factories.IslandFactory;
 import com.javarush.marzhiievskyi.wiev.ConsoleGUI;
 
 
@@ -16,13 +17,12 @@ public class ThreadsWorker {
     private final int DELAY;
     private final int PERIOD;
     private final int cores;
+    private final IslandFactory islandFactory;
 
-
-    private final IslandFactory islandFactory = new IslandFactory(20, 100);
-
-    public ThreadsWorker(int start_from, int period) {
-        DELAY = start_from;
-        PERIOD = period;
+    public ThreadsWorker() {
+        islandFactory = new IslandFactory();
+        DELAY = islandFactory.getParametersOfIsland().getDelayToStart();
+        PERIOD = islandFactory.getParametersOfIsland().getPeriod();
         cores = Runtime.getRuntime().availableProcessors();
     }
 

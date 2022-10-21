@@ -70,18 +70,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
     @Override
     public void eat(Cell cell) {
-//        Animals animal = (Animals) organism;
-//        //TODO get parameter that THIS.Organism can eat organism
-//        if (isDead()) {
-//            //our organism THIS is trying to eat organism from argument
-//            double  weightOfOrganism = animal.getCurrentWeight();
-//            double  currentWeight = this.getCurrentWeight() + weightOfOrganism;
-//            this.setCurrentWeight(Math.min(currentWeight, this.getMaxWeight()));
-//            ((Animals) organism).remove(cell);
-//        } else {
-//            this.remove(cell);
-//        }
-
 
         cell.getLock().lock();
         try {

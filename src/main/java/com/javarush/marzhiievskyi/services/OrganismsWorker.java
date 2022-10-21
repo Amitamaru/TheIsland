@@ -39,7 +39,6 @@ public class OrganismsWorker implements Runnable {
     }
 
     private void organismDoing(Cell cell) {
-
         Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(typeOfOrganism);
         cell.getLock().lock();
         try {

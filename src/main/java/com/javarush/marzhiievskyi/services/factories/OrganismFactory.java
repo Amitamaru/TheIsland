@@ -1,4 +1,4 @@
-package com.javarush.marzhiievskyi.services;
+package com.javarush.marzhiievskyi.services.factories;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,11 +25,11 @@ public class OrganismFactory {
 
 
 
-    public List<Organism> gettingSetOfOrganisms() {
+    private List<Organism> gettingSetOfOrganisms() {
         List<Organism> organismSet = new ArrayList<>();
         ObjectMapper mapper = new YAMLMapper();
 
-        ParametersOfAllOrganisms paramOfAllOrg = null;
+        ParametersOfAllOrganisms paramOfAllOrg;
         try {
             paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), ParametersOfAllOrganisms.class);
         } catch (IOException e) {

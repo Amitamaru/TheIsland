@@ -3,11 +3,8 @@ package com.javarush.marzhiievskyi.entity.field;
 import com.javarush.marzhiievskyi.entity.organisms.Animals;
 import com.javarush.marzhiievskyi.entity.organisms.Organism;
 import com.javarush.marzhiievskyi.entity.organisms.Plants;
-import com.javarush.marzhiievskyi.services.OrganismFactory;
+import com.javarush.marzhiievskyi.services.factories.OrganismFactory;
 
-import java.io.IOException;
-
-import java.security.PrivateKey;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
