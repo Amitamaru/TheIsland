@@ -75,7 +75,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
         cell.getLock().lock();
         try {
-            if (!isDead()) {
+            if (isNotDead()) {
 
                 List<GettingParametersOfEating.AnimalsEatable> eatParameters = ParametersForEating.getParametersForEating().getEatParameters(this);
 
@@ -150,7 +150,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void multiply(Cell cell) {
         cell.getLock().lock();
         try {
-            if (!isDead()) {
+            if (isNotDead()) {
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 if (organismSet.size() > 1) {
                     this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
@@ -177,8 +177,8 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
     }
 
-    public boolean isDead() {
-        return (this.currentWeight < (this.maxWeight - this.needFood));
+    public boolean isNotDead() {
+        return (!(this.currentWeight < (this.maxWeight - this.needFood)));
     }
 
 

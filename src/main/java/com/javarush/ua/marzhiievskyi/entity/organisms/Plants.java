@@ -15,7 +15,7 @@ public abstract class Plants extends Organism {
     private final double weight;
     private final int maxCountOnCell;
 
-    private double currentWeight;
+    private final double currentWeight;
 
     private final Organism currentType;
 
@@ -46,11 +46,6 @@ public abstract class Plants extends Organism {
 
     public double getCurrentWeight() {
         return currentWeight;
-    }
-
-    //Do we really need setter on weight?
-    public void setCurrentWeight(double currentWeight) {
-        this.currentWeight = currentWeight;
     }
 
 

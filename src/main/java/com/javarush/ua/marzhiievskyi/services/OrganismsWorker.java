@@ -5,7 +5,6 @@ import com.javarush.ua.marzhiievskyi.entity.field.GameField;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Animals;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Organism;
 import com.javarush.ua.marzhiievskyi.utils.Task;
-import com.javarush.ua.marzhiievskyi.wiev.ConsoleGUI;
 
 import java.util.Queue;
 import java.util.Set;

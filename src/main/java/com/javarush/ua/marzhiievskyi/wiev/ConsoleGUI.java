@@ -30,7 +30,9 @@ public class ConsoleGUI {
             System.out.println();
         }
     }
-//TODO in future get statistic by game field
+    //TODO in future get statistic by game field
+/*
+
     public void printStatistic(GameField gameField) {
         int totalOrganisms = 0;
         Cell[][] fieldIsland = gameField.getFieldIsland();
@@ -42,4 +44,5 @@ public class ConsoleGUI {
         }
         System.out.println(totalOrganisms);
     }
+*/
 }
