@@ -10,7 +10,7 @@ import com.javarush.ua.marzhiievskyi.entity.organisms.herbivorous.*;
 import com.javarush.ua.marzhiievskyi.entity.organisms.plants.Grass;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
 import com.javarush.ua.marzhiievskyi.utils.EnumOrganisms;
-import com.javarush.ua.marzhiievskyi.utils.gettingParameters.ParametersOfAllOrganisms;
+import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfAllOrganisms;
 
 
 import java.io.File;
@@ -31,13 +31,13 @@ public class OrganismFactory {
         List<Organism> organismSet = new ArrayList<>();
         ObjectMapper mapper = new YAMLMapper();
 
-        ParametersOfAllOrganisms paramOfAllOrg;
+        GettingParametersOfAllOrganisms paramOfAllOrg;
         try {
-            paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), ParametersOfAllOrganisms.class);
+            paramOfAllOrg = mapper.readValue(new File(Constants.ORGANISM_PARAMETERS_FILE_PATH), GettingParametersOfAllOrganisms.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        List<ParametersOfAllOrganisms.OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
+        List<GettingParametersOfAllOrganisms.OrganismParameters> organismParametersList = paramOfAllOrg.getOrganismParametersList();
         organismParametersList.forEach(organism -> {
             String name = organism.getName();
             String icon = organism.getIcon();

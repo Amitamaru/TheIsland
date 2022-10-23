@@ -5,9 +5,15 @@ import com.javarush.ua.marzhiievskyi.entity.field.Cell;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Eatable;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Movable;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
+import com.javarush.ua.marzhiievskyi.utils.ParametersForEating;
+import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfEating;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class Animals extends Organism implements Eatable, Movable {
     private final String name;
@@ -70,11 +76,34 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
         cell.getLock().lock();
         try {
+            List<GettingParametersOfEating.AnimalsEatable> eatParameters = ParametersForEating.getParametersForEating().getEatParameters(this);
+            int magicRandomToEat = ThreadLocalRandom.current().nextInt(0, 100);
+            int magicRandomWhatAnimalToEat = ThreadLocalRandom.current().nextInt(0, eatParameters.size());
+            String name = eatParameters.get(magicRandomWhatAnimalToEat).getName();
+            if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat() && checkThatAnimalIsInCell(cell, name)) {
 
+            }
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         } finally {
             cell.getLock().unlock();
         }
+    }
+
+    private boolean checkThatAnimalIsInCell(Cell cell, String name) {
+
+        AtomicBoolean result = new AtomicBoolean(false);
+        Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+        mapOfAnimalsOnCell.forEach((key,value) -> {
+            if (key.getClass().getSimpleName().toLowerCase().equals(name)) {
+                if (value.size() != 0) {
+                       result.set(true);
+                }
+            }
+        });
+
+        return result.get();
     }
 
 
@@ -86,7 +115,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         } finally {
             cell.getLock().unlock();
         }
-    }
+    }//TODO do move
 
     @Override
     public void multiply(Cell cell) {

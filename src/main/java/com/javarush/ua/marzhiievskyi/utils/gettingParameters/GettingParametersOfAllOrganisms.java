@@ -2,7 +2,7 @@ package com.javarush.ua.marzhiievskyi.utils.gettingParameters;
 
 import java.util.List;
 
-public class ParametersOfAllOrganisms {
+public class GettingParametersOfAllOrganisms {
     private List<OrganismParameters> organismParametersList;
 
     public List<OrganismParameters> getOrganismParametersList() {

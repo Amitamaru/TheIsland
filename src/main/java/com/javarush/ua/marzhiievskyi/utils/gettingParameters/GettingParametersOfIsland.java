@@ -1,7 +1,7 @@
 package com.javarush.ua.marzhiievskyi.utils.gettingParameters;
 
 
-public class ParametersOfIsland {
+public class GettingParametersOfIsland {
     private  int rowsGameField;
     private  int columnsGameField;
 
