@@ -9,9 +9,7 @@ import com.javarush.ua.marzhiievskyi.utils.ParametersForEating;
 import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfEating;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -82,6 +80,14 @@ public abstract class Animals extends Organism implements Eatable, Movable {
             String name = eatParameters.get(magicRandomWhatAnimalToEat).getName();
             if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat() && checkThatAnimalIsInCell(cell, name)) {
 
+                Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+                mapOfAnimalsOnCell.forEach((k, v) -> {
+                    if (k.getClass().getSimpleName().toLowerCase().equals(name)) {
+                        Optional<Organism> organismToDelete = v.stream().findAny();
+                        organismToDelete.ifPresent(v::remove);
+                    }
+                });
+                cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
             }
 
         } catch (IOException e) {
@@ -95,14 +101,13 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
         AtomicBoolean result = new AtomicBoolean(false);
         Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-        mapOfAnimalsOnCell.forEach((key,value) -> {
+        mapOfAnimalsOnCell.forEach((key, value) -> {
             if (key.getClass().getSimpleName().toLowerCase().equals(name)) {
                 if (value.size() != 0) {
-                       result.set(true);
+                    result.set(true);
                 }
             }
         });
-
         return result.get();
     }
 
@@ -151,7 +156,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public boolean isDead() {
         return (this.currentWeight < (this.maxWeight - this.needFood));
     }
-
 
 
     @Override

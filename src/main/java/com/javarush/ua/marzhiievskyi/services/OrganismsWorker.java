@@ -43,7 +43,7 @@ public class OrganismsWorker implements Runnable {
                     action.multiply(cell);
                     if (organism instanceof Animals animals) {
                         animals.eat(cell);
-                        animals.move(cell);
+                        //animals.move(cell);
                     }
                 });
                 tasks.add(task);

@@ -463,5 +463,5 @@ whoCanEat:
     chanceToEat: 0
   - name: "duck"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
