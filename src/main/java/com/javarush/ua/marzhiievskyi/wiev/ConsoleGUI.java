@@ -18,7 +18,7 @@ public class ConsoleGUI {
         for (Cell[] cells : fieldIsland) {
             for (Cell cell : cells) {
 
-                StringBuilder sb = new StringBuilder("[ ");
+                StringBuilder sb = new StringBuilder("[");
                 Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = cell.getMapOfAnimalsOnCell();
                 mapOfAnimalsOPnCell.forEach((key, value) -> {
                     sb.append(" ").append(key.toString()).append(": ").append(new DecimalFormat("000").format(value.size()));

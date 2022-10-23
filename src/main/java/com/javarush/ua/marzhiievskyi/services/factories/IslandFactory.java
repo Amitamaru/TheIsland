@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.javarush.ua.marzhiievskyi.entity.field.GameField;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
 import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfIsland;
+import com.javarush.ua.marzhiievskyi.wiev.ConsoleGUI;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,11 @@ public class IslandFactory {
 
         gameField = GameField.getGameField(gettingParametersOfIsland.getRows(), gettingParametersOfIsland.getColumns());
         gameField.initField();
+
+        System.out.println("Starter position and count of all organisms. Good luck =)");
+        ConsoleGUI consoleGUI = new ConsoleGUI();
+        consoleGUI.printField(getGameField());
+        System.out.println("======");
     }
 
     public GameField getGameField() {

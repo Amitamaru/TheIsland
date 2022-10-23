@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Animals extends Organism implements Eatable, Movable {
     private final String name;
@@ -74,20 +75,43 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
         cell.getLock().lock();
         try {
-            List<GettingParametersOfEating.AnimalsEatable> eatParameters = ParametersForEating.getParametersForEating().getEatParameters(this);
-            int magicRandomToEat = ThreadLocalRandom.current().nextInt(0, 100);
-            int magicRandomWhatAnimalToEat = ThreadLocalRandom.current().nextInt(0, eatParameters.size());
-            String name = eatParameters.get(magicRandomWhatAnimalToEat).getName();
-            if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat() && checkThatAnimalIsInCell(cell, name)) {
+            if (!isDead()) {
 
-                Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-                mapOfAnimalsOnCell.forEach((k, v) -> {
-                    if (k.getClass().getSimpleName().toLowerCase().equals(name)) {
-                        Optional<Organism> organismToDelete = v.stream().findAny();
-                        organismToDelete.ifPresent(v::remove);
-                    }
-                });
-                cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
+                List<GettingParametersOfEating.AnimalsEatable> eatParameters = ParametersForEating.getParametersForEating().getEatParameters(this);
+
+                int magicRandomToEat = ThreadLocalRandom.current().nextInt(0, 100);                           // chance to eat
+                int magicRandomWhatAnimalToEat = ThreadLocalRandom.current().nextInt(0, eatParameters.size());      // selecting type of organism to eat
+
+                if (this instanceof HerbivorousAnimals) {
+                    magicRandomWhatAnimalToEat = eatParameters.indexOf(eatParameters.get(eatParameters.size() - 1));
+                }
+                String name = eatParameters.get(magicRandomWhatAnimalToEat).getName();
+
+
+                if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat()
+                        && checkThatAnimalIsInCell(cell, name)
+                        && this.currentWeight < this.maxWeight) {
+
+                    Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+                    AtomicReference<Double> thisOrganismShouldDie = new AtomicReference<>((double) 0);
+                    mapOfAnimalsOnCell.forEach((k, v) -> {
+                        if (k.getClass().getSimpleName().toLowerCase().equals(name)) {
+
+                            Optional<Organism> organismToDelete = v.stream().findAny();
+                            if (k instanceof Animals animals) {
+                                thisOrganismShouldDie.set(animals.getCurrentWeight());
+                            } else if (k instanceof Plants plants) {
+                                thisOrganismShouldDie.set(plants.getCurrentWeight());
+                            }
+                            organismToDelete.ifPresent(v::remove);
+                        }
+                    });
+                    cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
+
+                    Double weightOfDeadOrganism = thisOrganismShouldDie.get();
+                    this.currentWeight = Math.min((weightOfDeadOrganism + this.currentWeight), this.maxWeight);
+                }
+
             }
 
         } catch (IOException e) {
@@ -116,7 +140,7 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void move(Cell cell) {
         cell.getLock().lock();
         try {
-
+            this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
         } finally {
             cell.getLock().unlock();
         }
@@ -160,6 +184,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
     @Override
     public String toString() {
-        return icon;
+        return this.icon;
     }
 }

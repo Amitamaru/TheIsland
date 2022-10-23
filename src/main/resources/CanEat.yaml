@@ -29,7 +29,7 @@ whoCanEat:
     chanceToEat: 40
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 0
   snake:
   - name: "woolf"
@@ -60,7 +60,7 @@ whoCanEat:
     chanceToEat: 10
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 0
   fox:
   - name: "woolf"
@@ -91,7 +91,7 @@ whoCanEat:
     chanceToEat: 60
   - name: "caterpillar"
     chanceToEat: 40
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 0
   bear:
   - name: "woolf"
@@ -122,7 +122,7 @@ whoCanEat:
     chanceToEat: 10
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 0
   eagle:
   - name: "woolf"
@@ -153,7 +153,7 @@ whoCanEat:
     chanceToEat: 80
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 0
   horse:
   - name: "woolf"
@@ -184,7 +184,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   deer:
   - name: "woolf"
@@ -215,7 +215,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   rabbit:
   - name: "woolf"
@@ -246,7 +246,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   mouse:
   - name: "woolf"
@@ -277,7 +277,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 90
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   goat:
   - name: "woolf"
@@ -308,7 +308,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   sheep:
   - name: "woolf"
@@ -339,7 +339,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   boar:
   - name: "woolf"
@@ -370,7 +370,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 90
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   buffalo:
   - name: "woolf"
@@ -401,7 +401,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 0
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   duck:
   - name: "woolf"
@@ -432,7 +432,7 @@ whoCanEat:
     chanceToEat: 0
   - name: "caterpillar"
     chanceToEat: 90
-  - name: "plants"
+  - name: "grass"
     chanceToEat: 100
   caterpillar:
   - name: "woolf"

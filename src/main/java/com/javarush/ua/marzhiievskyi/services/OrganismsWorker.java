@@ -5,6 +5,7 @@ import com.javarush.ua.marzhiievskyi.entity.field.GameField;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Animals;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Organism;
 import com.javarush.ua.marzhiievskyi.utils.Task;
+import com.javarush.ua.marzhiievskyi.wiev.ConsoleGUI;
 
 import java.util.Queue;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class OrganismsWorker implements Runnable {
 
     @Override
     public void run() {
+
         Cell[][] fieldIsland = gameField.getFieldIsland();
         for (Cell[] cells : fieldIsland) {
             for (Cell cell : cells) {
@@ -43,7 +45,7 @@ public class OrganismsWorker implements Runnable {
                     action.multiply(cell);
                     if (organism instanceof Animals animals) {
                         animals.eat(cell);
-                        //animals.move(cell);
+                        animals.move(cell);
                     }
                 });
                 tasks.add(task);

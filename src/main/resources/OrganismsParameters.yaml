@@ -111,6 +111,6 @@ organismParametersList:
 - name: grass
   icon: "\uD83C\uDF3F"
   weight: 1
-  maxCountOnCell: 200
+  maxCountOnCell: 500
   maxSpeedCells: null
   needFood: null
