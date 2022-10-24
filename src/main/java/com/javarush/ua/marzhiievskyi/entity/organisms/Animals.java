@@ -4,6 +4,7 @@ package com.javarush.ua.marzhiievskyi.entity.organisms;
 import com.javarush.ua.marzhiievskyi.entity.field.Cell;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Eatable;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Movable;
+import com.javarush.ua.marzhiievskyi.entity.organisms.plants.Grass;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
 import com.javarush.ua.marzhiievskyi.utils.ParametersForEating;
 import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfEating;

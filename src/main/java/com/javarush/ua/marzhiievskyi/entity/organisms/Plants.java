@@ -56,7 +56,7 @@ public abstract class Plants extends Organism {
     public void multiply(Cell cell) {
 
        cell.getLock().lock();
-        try {//TODO check this
+        try {//TODO check this (need to do like in animals)
             if (isNotDead()) {
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
