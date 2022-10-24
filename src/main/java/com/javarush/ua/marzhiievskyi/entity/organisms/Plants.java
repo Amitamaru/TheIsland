@@ -57,18 +57,23 @@ public abstract class Plants extends Organism {
 
        cell.getLock().lock();
         try {
-            Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
-            int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
-            if ( chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD_FOR_PLANTS) {
-                for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_PLANTS; i++) {
-                    if (organismSet.size() < this.maxCountOnCell) {
-                        organismSet.add(this.clone());
-                    }
+            if (isNotDead()) {
+                Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
+                int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
+                if ( chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD_FOR_PLANTS) {
+                    for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_PLANTS; i++) {
+                        if (organismSet.size() < this.maxCountOnCell) {
+                            organismSet.add(this.clone());
+                        }
 
+                    }
                 }
+                Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+                mapOfAnimalsOnCell.put(currentType, organismSet);
+            } else {
+                remove(cell);
             }
-            Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-            mapOfAnimalsOnCell.put(currentType, organismSet);
+
 
         } finally {
            cell.getLock().unlock();
@@ -81,5 +86,9 @@ public abstract class Plants extends Organism {
     @Override
     public String toString() {
         return icon;
+    }
+
+    private void remove(Cell cell) {
+        cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
     }
 }

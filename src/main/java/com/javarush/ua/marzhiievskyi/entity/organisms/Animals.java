@@ -91,17 +91,18 @@ public abstract class Animals extends Organism implements Eatable, Movable {
 
                 if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat()
                         && checkThatAnimalIsInCell(cell, name)
-                        && this.currentWeight < this.maxWeight) {
+                        && this.getCurrentWeight() < this.getMaxWeight()) {
                     cell.getMapOfAnimalsOnCell().forEach((key, value) -> {
-                        if (key.getClass().getSimpleName().equalsIgnoreCase(name)) {
+                        if (name.equalsIgnoreCase(key.getClass().getSimpleName())) {
                             Organism organism = value.iterator().next();
                             if (organism instanceof Animals animals) {
-                                this.currentWeight = Math.min((animals.getCurrentWeight() + this.getCurrentWeight()), this.maxWeight);
-                                animals.currentWeight = 0;
+                                this.setCurrentWeight(Math.min((animals.getCurrentWeight() + this.getCurrentWeight()), this.getMaxWeight()));
+                                animals.setCurrentWeight(0);
+                                System.out.println(this.getName() + " eat " + animals);
                             } else if (organism instanceof Plants plants) {
-
-                                this.currentWeight = Math.min((plants.getCurrentWeight() + this.getCurrentWeight()), this.maxWeight);
+                                this.setCurrentWeight(Math.min((plants.getCurrentWeight() + this.getCurrentWeight()), this.getMaxWeight()));
                                 plants.setCurrentWeight(0);
+                                //System.out.println(this.getName() + " eat " + plants);
                             }
                         }
                     });
