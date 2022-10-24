@@ -44,8 +44,6 @@ public class Cell {
 
 
 
-
-
     public List<Cell> generateMoveList(Cell cell) {
         Cell[][] cells = GameField.getGameField().getFieldIsland();
         List<Cell> movementCells = new ArrayList<>();

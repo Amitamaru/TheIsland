@@ -33,4 +33,6 @@ public abstract class Organism implements Cloneable, Reproductionable {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+
+
 }

@@ -1,5 +1,7 @@
 package com.javarush.ua.marzhiievskyi.utils.gettingParameters;
 
+import com.javarush.ua.marzhiievskyi.entity.organisms.Organism;
+
 import java.util.List;
 import java.util.Map;
 

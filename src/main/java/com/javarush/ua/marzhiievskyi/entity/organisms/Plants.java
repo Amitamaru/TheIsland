@@ -15,7 +15,7 @@ public abstract class Plants extends Organism {
     private final double weight;
     private final int maxCountOnCell;
 
-    private final double currentWeight;
+    private double currentWeight;
 
     private final Organism currentType;
 
@@ -48,6 +48,9 @@ public abstract class Plants extends Organism {
         return currentWeight;
     }
 
+    public void setCurrentWeight(double currentWeight) {
+        this.currentWeight = currentWeight;
+    }
 
     @Override
     public void multiply(Cell cell) {
@@ -71,7 +74,9 @@ public abstract class Plants extends Organism {
            cell.getLock().unlock();
         }
     }
-
+    public boolean isNotDead() {
+        return this.currentWeight != 0;
+    }
 
     @Override
     public String toString() {

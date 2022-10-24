@@ -76,11 +76,12 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         cell.getLock().lock();
         try {
             if (isNotDead()) {
+                weightLose();
 
                 List<GettingParametersOfEating.AnimalsEatable> eatParameters = ParametersForEating.getParametersForEating().getEatParameters(this);
 
-                int magicRandomToEat = ThreadLocalRandom.current().nextInt(0, 100);                           // chance to eat
-                int magicRandomWhatAnimalToEat = ThreadLocalRandom.current().nextInt(0, eatParameters.size());      // selecting type of organism to eat
+                int magicRandomToEat = ThreadLocalRandom.current().nextInt(0, 100);                         // chance to eat
+                int magicRandomWhatAnimalToEat = ThreadLocalRandom.current().nextInt(0, eatParameters.size());     // selecting type of organism to eat
 
                 if (this instanceof HerbivorousAnimals) {
                     magicRandomWhatAnimalToEat = eatParameters.indexOf(eatParameters.get(eatParameters.size() - 1));
@@ -91,25 +92,20 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                 if (magicRandomToEat < eatParameters.get(magicRandomWhatAnimalToEat).getChanceToEat()
                         && checkThatAnimalIsInCell(cell, name)
                         && this.currentWeight < this.maxWeight) {
+                    cell.getMapOfAnimalsOnCell().forEach((key, value) -> {
+                        if (key.getClass().getSimpleName().equalsIgnoreCase(name)) {
+                            Organism organism = value.iterator().next();
+                            if (organism instanceof Animals animals) {
+                                this.currentWeight = Math.min((animals.getCurrentWeight() + this.getCurrentWeight()), this.maxWeight);
+                                animals.currentWeight = 0;
+                            } else if (organism instanceof Plants plants) {
 
-                    Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-                    AtomicReference<Double> thisOrganismShouldDie = new AtomicReference<>((double) 0);
-                    mapOfAnimalsOnCell.forEach((k, v) -> {
-                        if (k.getClass().getSimpleName().toLowerCase().equals(name)) {
-
-                            Optional<Organism> organismToDelete = v.stream().findAny();
-                            if (k instanceof Animals animals) {
-                                thisOrganismShouldDie.set(animals.getCurrentWeight());
-                            } else if (k instanceof Plants plants) {
-                                thisOrganismShouldDie.set(plants.getCurrentWeight());
+                                this.currentWeight = Math.min((plants.getCurrentWeight() + this.getCurrentWeight()), this.maxWeight);
+                                plants.setCurrentWeight(0);
                             }
-                            organismToDelete.ifPresent(v::remove);
                         }
                     });
-                    cell.setMapOfAnimalsOPnCell(mapOfAnimalsOnCell);
 
-                    Double weightOfDeadOrganism = thisOrganismShouldDie.get();
-                    this.currentWeight = Math.min((weightOfDeadOrganism + this.currentWeight), this.maxWeight);
                 }
 
             }
@@ -140,12 +136,18 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void move(Cell cell) {
         cell.getLock().lock();
         try {
-            if (ThreadLocalRandom.current().nextBoolean() && this.maxSpeed != 0) {
+            if (isNotDead()) {
+                weightLose();
+                if (ThreadLocalRandom.current().nextBoolean() && this.maxSpeed != 0) {
+                    moveOnOneCell(cell);
 
-                moveOnOneCell(cell);
+                }
 
-
+            } else {
+                remove(cell);
             }
+
+
         } finally {
             cell.getLock().unlock();
         }
@@ -163,8 +165,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
             destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
             cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
 
-        } else {
-            this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
         }
 
 
@@ -176,14 +176,18 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         return roadToMove.get(chosenRoad);
     }
 
+    private void weightLose() {
+        this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
+    }
+
     @Override
     public void multiply(Cell cell) {
         cell.getLock().lock();
         try {
             if (isNotDead()) {
+                weightLose();
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 if (organismSet.size() > 1) {
-                    this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
                     int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
                     if (chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD) {
 

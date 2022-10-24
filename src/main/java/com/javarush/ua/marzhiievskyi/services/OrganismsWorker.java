@@ -15,7 +15,7 @@ public class OrganismsWorker implements Runnable {
     private final GameField gameField;
     private final Organism typeOfOrganism;
 
-    private final Queue<Task> tasks = new ConcurrentLinkedDeque <>();
+    private final Queue<Task> tasks = new ConcurrentLinkedDeque<>();
 
 
     public OrganismsWorker(GameField gameField, Organism typeOfOrganism) {
@@ -41,16 +41,16 @@ public class OrganismsWorker implements Runnable {
         try {
             organismSet.forEach(organism -> {
                 Task task = new Task(organism, action -> {
-                   // action.multiply(cell);
+                    action.multiply(cell);
                     if (organism instanceof Animals animals) {
-                       // animals.eat(cell);
+                        animals.eat(cell);
                         animals.move(cell);
                     }
                 });
                 tasks.add(task);
             });
         } finally {
-          cell.getLock().unlock();
+            cell.getLock().unlock();
         }
         tasks.forEach(Task::execute);
         tasks.clear();
