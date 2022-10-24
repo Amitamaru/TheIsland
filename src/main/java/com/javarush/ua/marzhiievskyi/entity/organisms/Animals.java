@@ -140,24 +140,40 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void move(Cell cell) {
         cell.getLock().lock();
         try {
-            if (ThreadLocalRandom.current().nextBoolean()) {
-                List<Cell> destRoad = cell.generateMoveList(cell);
-                int chosenRoad = ThreadLocalRandom.current().nextInt(0, destRoad.size());
-                Cell destinationCell = destRoad.get(chosenRoad);
-                if (destinationCell.getMapOfAnimalsOnCell().get(currentType).size() < this.maxCountOnCell) {
-                    destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
-                    cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
-                } else {
-                    this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
-                }
+            if (ThreadLocalRandom.current().nextBoolean() && this.maxSpeed != 0) {
+
+                moveOnOneCell(cell);
 
 
             }
-
-
         } finally {
             cell.getLock().unlock();
         }
+    }
+
+    private void moveOnOneCell(Cell cell) {
+        int speed = this.maxSpeed;
+        Cell destinationCell = getTargetCell(cell);
+        while (speed > 1) {
+            destinationCell = getTargetCell(destinationCell);//TODO finish movement with recursion
+            speed--;
+        }
+
+        if (destinationCell.getMapOfAnimalsOnCell().get(currentType).size() < this.maxCountOnCell) {
+            destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
+            cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+
+        } else {
+            this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
+        }
+
+
+    }
+
+    private Cell getTargetCell(Cell cell) {
+        List<Cell> roadToMove = cell.generateMoveList(cell);
+        int chosenRoad = ThreadLocalRandom.current().nextInt(0, roadToMove.size());
+        return roadToMove.get(chosenRoad);
     }
 
     @Override
