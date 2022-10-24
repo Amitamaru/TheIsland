@@ -56,7 +56,7 @@ public abstract class Plants extends Organism {
     public void multiply(Cell cell) {
 
        cell.getLock().lock();
-        try {
+        try {//TODO check this
             if (isNotDead()) {
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
@@ -67,9 +67,11 @@ public abstract class Plants extends Organism {
                         }
 
                     }
+
+                    Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
+                    mapOfAnimalsOnCell.put(currentType, organismSet);
                 }
-                Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-                mapOfAnimalsOnCell.put(currentType, organismSet);
+
             } else {
                 remove(cell);
             }

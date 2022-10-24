@@ -98,11 +98,9 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                             if (organism instanceof Animals animals) {
                                 this.setCurrentWeight(Math.min((animals.getCurrentWeight() + this.getCurrentWeight()), this.getMaxWeight()));
                                 animals.setCurrentWeight(0);
-                                System.out.println(this.getName() + " eat " + animals);
                             } else if (organism instanceof Plants plants) {
                                 this.setCurrentWeight(Math.min((plants.getCurrentWeight() + this.getCurrentWeight()), this.getMaxWeight()));
                                 plants.setCurrentWeight(0);
-                                //System.out.println(this.getName() + " eat " + plants);
                             }
                         }
                     });
