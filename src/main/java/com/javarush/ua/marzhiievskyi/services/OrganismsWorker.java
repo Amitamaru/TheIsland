@@ -41,9 +41,9 @@ public class OrganismsWorker implements Runnable {
         try {
             organismSet.forEach(organism -> {
                 Task task = new Task(organism, action -> {
-                    action.multiply(cell);
+                   // action.multiply(cell);
                     if (organism instanceof Animals animals) {
-                        animals.eat(cell);
+                       // animals.eat(cell);
                         animals.move(cell);
                     }
                 });

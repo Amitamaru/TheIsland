@@ -140,11 +140,25 @@ public abstract class Animals extends Organism implements Eatable, Movable {
     public void move(Cell cell) {
         cell.getLock().lock();
         try {
-            this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
+            if (ThreadLocalRandom.current().nextBoolean()) {
+                List<Cell> destRoad = cell.generateMoveList(cell);
+                int chosenRoad = ThreadLocalRandom.current().nextInt(0, destRoad.size());
+                Cell destinationCell = destRoad.get(chosenRoad);
+                if (destinationCell.getMapOfAnimalsOnCell().get(currentType).size() < this.maxCountOnCell) {
+                    destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
+                    cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+                } else {
+                    this.currentWeight = this.currentWeight - (this.currentWeight * Constants.WEIGHT_LOSE_PER_ACTION) / 100;
+                }
+
+
+            }
+
+
         } finally {
             cell.getLock().unlock();
         }
-    }//TODO do move
+    }
 
     @Override
     public void multiply(Cell cell) {

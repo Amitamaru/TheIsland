@@ -25,6 +25,9 @@ public class GameField {
         return gameField;
     }
 
+    public static GameField getGameField() {
+        return gameField;
+    }
 
     public Cell[][] getFieldIsland() {
         return fieldIsland;
@@ -34,7 +37,8 @@ public class GameField {
     public void initField() {
         for (int i = 0; i < fieldIsland.length; i++) {
             for (int j = 0; j < fieldIsland[i].length; j++) {
-                fieldIsland[i][j] = new Cell(generateOrganismsInCell());
+                Cell cell = new Cell(i, j, generateOrganismsInCell());
+                fieldIsland[i][j] = cell;
             }
         }
     }
