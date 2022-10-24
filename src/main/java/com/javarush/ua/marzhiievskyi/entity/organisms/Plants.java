@@ -67,9 +67,6 @@ public abstract class Plants extends Organism {
                         }
 
                     }
-
-//                    Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-//                    mapOfAnimalsOnCell.put(currentType, organismSet);
                 }
 
             } else {
