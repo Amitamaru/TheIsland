@@ -1,6 +1,6 @@
 #Parameters of game field and period witch console show us info
 ---
-period: 5
-delayToStart: 4
+period: 3
+delayToStart: 2
 rows: 20
 columns: 100

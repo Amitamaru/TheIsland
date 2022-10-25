@@ -53,28 +53,39 @@ public abstract class Plants extends Organism {
 
     @Override
     public void multiply(Cell cell) {
-       cell.getLock().lock();
-        try {
-            if (isNotDead()) {
-                Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
-                int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
-                if ( chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD_FOR_PLANTS) {
-                    for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_PLANTS; i++) {
-                        if (organismSet.size() < this.maxCountOnCell) {
-                            organismSet.add(this.clone());
-                        }
 
+        if (isNotDead(cell)) {
+            lockedMultiply(cell);
+        } else {
+            lockedRemove(cell);
+        }
+
+    }
+
+    private void lockedMultiply(Cell cell) {
+        cell.getLock().lock();
+        try {
+            Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
+            int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
+            if (chanceMultiply < Constants.CHANCE_TO_BIRTH_CHILD_FOR_PLANTS) {
+                for (int i = 0; i < Constants.COUNT_OF_DESCENDANTS_FOR_PLANTS; i++) {
+                    if (organismSet.size() < this.maxCountOnCell) {
+                        organismSet.add(this.clone());
                     }
                 }
-            } else {
-                remove(cell);
             }
         } finally {
-           cell.getLock().unlock();
+            cell.getLock().unlock();
         }
     }
-    public boolean isNotDead() {
-        return this.currentWeight != 0;
+
+    public boolean isNotDead(Cell cell) {
+        cell.getLock().lock();
+        try {
+            return this.currentWeight != 0;
+        } finally {
+            cell.getLock().unlock();
+        }
     }
 
     @Override
@@ -82,7 +93,12 @@ public abstract class Plants extends Organism {
         return icon;
     }
 
-    private void remove(Cell cell) {
+    private void lockedRemove(Cell cell) {
+        cell.getLock().lock();
+        try {
             cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+        } finally {
+            cell.getLock().unlock();
+        }
     }
 }
