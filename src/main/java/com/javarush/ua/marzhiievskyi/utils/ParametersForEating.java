@@ -11,25 +11,30 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class ParametersForEating  {
+public class ParametersForEating {
 
     private static ParametersForEating parametersForEating;
 
     private final GettingParametersOfEating gettingParametersOfEating;
 
-    private ParametersForEating() throws IOException {
-        ObjectMapper mapper = new YAMLMapper();
-        gettingParametersOfEating = mapper.readValue(new File(Constants.ORGANISM_EAT_CHANCE_FILE_PATH), GettingParametersOfEating.class);
+    private ParametersForEating(){
+        try {
+            ObjectMapper mapper = new YAMLMapper();
+            gettingParametersOfEating = mapper.readValue(new File(Constants.ORGANISM_EAT_CHANCE_FILE_PATH), GettingParametersOfEating.class);
+
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
     }
 
-    public static ParametersForEating getParametersForEating() throws IOException{
+    public static ParametersForEating getParametersForEating() {
         if (parametersForEating == null) {
             parametersForEating = new ParametersForEating();
         }
         return parametersForEating;
     }
 
-    public List<GettingParametersOfEating.AnimalsEatable> getEatParameters(Animals animal) throws IOException {
+    public List<GettingParametersOfEating.AnimalsEatable> getEatParameters(Animals animal) {
         String name = animal.getName().toLowerCase();
         return gettingParametersOfEating.getWhoCanEat().get(name);
     }

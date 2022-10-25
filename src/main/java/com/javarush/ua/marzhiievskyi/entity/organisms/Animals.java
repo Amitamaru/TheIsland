@@ -105,8 +105,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                     });
                 }
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } finally {
             cell.getLock().unlock();
         }

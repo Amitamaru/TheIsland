@@ -27,6 +27,7 @@ public class IslandFactory {
         System.out.println(Constants.WELCOME_MSG);
         ConsoleGUI consoleGUI = new ConsoleGUI();
         consoleGUI.printField(getGameField());
+        consoleGUI.printStatistic(getGameField());
         System.out.println(Constants.BETWEEN_INIT_AND_ALL_TICKS);
     }
 
