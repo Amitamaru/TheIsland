@@ -51,7 +51,7 @@ public class ThreadsWorker {
                 throw new RuntimeException(e);
             }
 
-        }, DELAY, PERIOD, TimeUnit.MILLISECONDS);
+        }, DELAY, PERIOD, TimeUnit.SECONDS);
 
 
     }
