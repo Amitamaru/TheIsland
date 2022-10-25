@@ -8,7 +8,7 @@ public class Constants {
 
     //setting for organism
     public static final double WEIGHT_LOSE_PER_ACTION = 1;
-    public static final int CHANCE_TO_BIRTH_CHILD = 15;
+    public static final int CHANCE_TO_BIRTH_CHILD = 20;
     public static final int CHANCE_TO_BIRTH_CHILD_FOR_PLANTS = 3;
     public static final int COUNT_OF_DESCENDANTS_FOR_PLANTS = 4;
     public static final int COUNT_OF_DESCENDANTS_FOR_ANIMALS = 1;
