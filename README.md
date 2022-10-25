@@ -1,4 +1,4 @@
-# TheIsland
+# The Island
 Java core project "Dynamic Island"
 
 
