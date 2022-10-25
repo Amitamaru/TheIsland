@@ -4,7 +4,6 @@ import com.javarush.ua.marzhiievskyi.entity.field.Cell;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
 
 
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -54,9 +53,8 @@ public abstract class Plants extends Organism {
 
     @Override
     public void multiply(Cell cell) {
-
        cell.getLock().lock();
-        try {//TODO check this (need to do like in animals)
+        try {
             if (isNotDead()) {
                 Set<Organism> organismSet = cell.getMapOfAnimalsOnCell().get(currentType);
                 int chanceMultiply = ThreadLocalRandom.current().nextInt(0, 100);
@@ -68,12 +66,9 @@ public abstract class Plants extends Organism {
 
                     }
                 }
-
             } else {
                 remove(cell);
             }
-
-
         } finally {
            cell.getLock().unlock();
         }
@@ -88,6 +83,6 @@ public abstract class Plants extends Organism {
     }
 
     private void remove(Cell cell) {
-        cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+            cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
     }
 }

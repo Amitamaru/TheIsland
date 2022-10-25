@@ -3,11 +3,13 @@ package com.javarush.ua.marzhiievskyi.wiev;
 import com.javarush.ua.marzhiievskyi.entity.field.Cell;
 import com.javarush.ua.marzhiievskyi.entity.field.GameField;
 import com.javarush.ua.marzhiievskyi.entity.organisms.Organism;
+import com.javarush.ua.marzhiievskyi.utils.Constants;
 
 
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConsoleGUI {
 
@@ -30,19 +32,20 @@ public class ConsoleGUI {
             System.out.println();
         }
     }
-    //TODO in future get statistic by game field
-/*
 
     public void printStatistic(GameField gameField) {
-        int totalOrganisms = 0;
+        AtomicInteger totalOrganisms = new AtomicInteger();
         Cell[][] fieldIsland = gameField.getFieldIsland();
         for (Cell[] cells : fieldIsland) {
             for (Cell cell : cells) {
                 Map<Organism, Set<Organism>> mapOfAnimalsOnCell = cell.getMapOfAnimalsOnCell();
-
+                mapOfAnimalsOnCell.forEach((k, v) -> {
+                    int size = v.size();
+                    totalOrganisms.set(totalOrganisms.get() + size);
+                });
             }
         }
-        System.out.println(totalOrganisms);
+        System.out.println(Constants.TOTAL_ORGANISMS + totalOrganisms.get());
     }
-*/
+
 }

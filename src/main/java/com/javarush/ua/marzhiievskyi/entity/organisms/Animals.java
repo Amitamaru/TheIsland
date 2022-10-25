@@ -4,7 +4,6 @@ package com.javarush.ua.marzhiievskyi.entity.organisms;
 import com.javarush.ua.marzhiievskyi.entity.field.Cell;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Eatable;
 import com.javarush.ua.marzhiievskyi.entity.organisms.actions.Movable;
-import com.javarush.ua.marzhiievskyi.entity.organisms.plants.Grass;
 import com.javarush.ua.marzhiievskyi.utils.Constants;
 import com.javarush.ua.marzhiievskyi.utils.ParametersForEating;
 import com.javarush.ua.marzhiievskyi.utils.gettingParameters.GettingParametersOfEating;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Animals extends Organism implements Eatable, Movable {
     private final String name;
@@ -105,11 +103,8 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                             }
                         }
                     });
-
                 }
-
             }
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
@@ -131,7 +126,6 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         return result.get();
     }
 
-
     @Override
     public void move(Cell cell) {
         cell.getLock().lock();
@@ -140,40 +134,32 @@ public abstract class Animals extends Organism implements Eatable, Movable {
                 weightLose();
                 if (ThreadLocalRandom.current().nextBoolean() && this.maxSpeed != 0) {
                     moveOnOneCell(cell);
-
                 }
-
             } else {
                 remove(cell);
             }
-
-
         } finally {
             cell.getLock().unlock();
         }
     }
 
     private void moveOnOneCell(Cell cell) {
-        int speed = this.maxSpeed;
-        Cell destinationCell = getTargetCell(cell);
-        while (speed > 1) {
-            destinationCell = getTargetCell(destinationCell);//TODO finish movement with recursion
-            speed--;
-        }
-
-        if (destinationCell.getMapOfAnimalsOnCell().get(currentType).size() < this.maxCountOnCell) {
-            destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
-            cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
-
-        }
-
-
+            int speed = this.maxSpeed;
+            Cell destinationCell = getTargetCell(cell);
+            while (speed > 1) {
+                destinationCell = getTargetCell(destinationCell);
+                speed--;
+            }
+            if (destinationCell.getMapOfAnimalsOnCell().get(currentType).size() < this.maxCountOnCell) {
+                destinationCell.getMapOfAnimalsOnCell().get(currentType).add(this.clone());
+                cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+            }
     }
 
     private Cell getTargetCell(Cell cell) {
-        List<Cell> roadToMove = cell.generateMoveList(cell);
-        int chosenRoad = ThreadLocalRandom.current().nextInt(0, roadToMove.size());
-        return roadToMove.get(chosenRoad);
+            List<Cell> roadToMove = cell.generateMoveList(cell);
+            int chosenRoad = ThreadLocalRandom.current().nextInt(0, roadToMove.size());
+            return roadToMove.get(chosenRoad);
     }
 
     private void weightLose() {
@@ -204,17 +190,15 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         } finally {
             cell.getLock().unlock();
         }
-
     }
 
     private void remove(Cell cell) {
-        cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
+            cell.getMapOfAnimalsOnCell().get(currentType).remove(this);
     }
 
     public boolean isNotDead() {
         return (!(this.currentWeight < (this.maxWeight - this.needFood)));
     }
-
 
     @Override
     public String toString() {

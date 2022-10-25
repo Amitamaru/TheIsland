@@ -29,9 +29,6 @@ public class ParametersForEating  {
         return parametersForEating;
     }
 
-
-
-
     public List<GettingParametersOfEating.AnimalsEatable> getEatParameters(Animals animal) throws IOException {
         String name = animal.getName().toLowerCase();
         return gettingParametersOfEating.getWhoCanEat().get(name);

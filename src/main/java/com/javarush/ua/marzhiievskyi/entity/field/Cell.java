@@ -48,8 +48,7 @@ public class Cell {
         Cell[][] cells = GameField.getGameField().getFieldIsland();
         List<Cell> movementCells = new ArrayList<>();
 
-//        for (int i = 0; i < cells.length; i++) {
-//            for (int j = 0; j < cells[i].length; j++) {
+
         int i = cell.getI();
         int j = cell.getJ();
 
@@ -96,8 +95,6 @@ public class Cell {
             movementCells.add(cells[i - 1][j]);
             movementCells.add(cells[i + 1][j]);
         }
-//            }
-//        }
 
         return movementCells;
     }

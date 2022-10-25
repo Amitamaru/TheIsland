@@ -24,7 +24,6 @@ public class IslandFactory {
 
         gameField = GameField.getGameField(gettingParametersOfIsland.getRows(), gettingParametersOfIsland.getColumns());
         gameField.initField();
-        //TODO all text in constants
         System.out.println(Constants.WELCOME_MSG);
         ConsoleGUI consoleGUI = new ConsoleGUI();
         consoleGUI.printField(getGameField());

@@ -45,7 +45,7 @@ public class ThreadsWorker {
             try {
                if(service.awaitTermination(PERIOD, TimeUnit.SECONDS)) {
                    consoleGUI.printField(islandFactory.getGameField());
-                   // consoleGUI.printStatistic(islandFactory.getGameField());
+                   consoleGUI.printStatistic(islandFactory.getGameField());
                }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

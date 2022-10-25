@@ -16,6 +16,6 @@ public class Constants {
     //some text
     public static final String WELCOME_MSG = "Starter position and count of all organisms. Good luck =)";
     public static final String BETWEEN_INIT_AND_ALL_TICKS = "   ==========================================  ";
-
+    public static final String TOTAL_ORGANISMS = "Total organisms on the island: ";
 
 }
