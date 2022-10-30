@@ -23,7 +23,12 @@ public class ConsoleGUI {
                 StringBuilder sb = new StringBuilder("[");
                 Map<Organism, Set<Organism>> mapOfAnimalsOPnCell = cell.getMapOfAnimalsOnCell();
                 mapOfAnimalsOPnCell.forEach((key, value) -> {
-                    sb.append(" ").append(key.toString()).append(": ").append(new DecimalFormat("000").format(value.size()));
+                    String formatCount = new DecimalFormat("000").format(value.size());
+                    sb
+                            .append(" ")
+                            .append(key.toString())
+                            .append(": ")
+                            .append(formatCount);
                 });
                 sb.append(" ]   ");
                 System.out.print(sb);

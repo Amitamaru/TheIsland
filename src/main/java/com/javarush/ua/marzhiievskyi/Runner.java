@@ -9,7 +9,6 @@ public class Runner {
         ThreadsWorker threadsWorker = new ThreadsWorker();
         threadsWorker.startExecutor();
 
-
     }
 }
 

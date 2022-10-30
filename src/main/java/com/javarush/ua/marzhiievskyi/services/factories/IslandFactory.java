@@ -17,7 +17,8 @@ public class IslandFactory {
     public IslandFactory() {
         ObjectMapper mapper = new YAMLMapper();
         try {
-            gettingParametersOfIsland = mapper.readValue(new File(Constants.GAME_ISLAND_PARAMETERS_FILE_PATH), GettingParametersOfIsland.class);
+            File gameIslandParameters = new File(Constants.GAME_ISLAND_PARAMETERS_FILE_PATH);
+            gettingParametersOfIsland = mapper.readValue(gameIslandParameters, GettingParametersOfIsland.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

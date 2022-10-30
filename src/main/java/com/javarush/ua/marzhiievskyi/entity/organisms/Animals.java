@@ -152,14 +152,14 @@ public abstract class Animals extends Organism implements Eatable, Movable {
         if (isNotDead(cell)) {
             lockedWeightLose(cell);
             if (ThreadLocalRandom.current().nextBoolean() && this.maxSpeed != 0) {
-                lockedMoveOnOneCell(cell);
+                stepNumber(cell);
             }
         } else {
             lockedRemove(cell);
         }
     }
 
-    private void lockedMoveOnOneCell(Cell cell) {
+    private void stepNumber(Cell cell) {
         int speed = this.maxSpeed;
         Cell destinationCell = lockedGetTargetCell(cell);
         while (speed > 1) {

@@ -53,43 +53,34 @@ public class Cell {
         int j = cell.getJ();
 
         if (i == 0 && j == 0) {
-            //if current cell left top
             movementCells.add(cells[i + 1][j]);
             movementCells.add(cells[i][j + 1]);
         } else if (i == (cells.length - 1) && j == 0) {
-            //if current cell left bottom
             movementCells.add(cells[i - 1][j]);
             movementCells.add(cells[i][j + 1]);
         } else if (i == (cells.length - 1) && j == (cells[i].length - 1)) {
-            //if current cell right bottom
             movementCells.add(cells[i - 1][j]);
             movementCells.add(cells[i][j - 1]);
         } else if (i == 0 && j == (cells[i].length - 1)) {
-            //if current cell right top
             movementCells.add(cells[i][j - 1]);
             movementCells.add(cells[i + 1][j]);
         } else if (i == 0 && j < (cells[i].length - 1)) {
-            //if current cell in top line
             movementCells.add(cells[i][j - 1]);
             movementCells.add(cells[i][j + 1]);
             movementCells.add(cells[i + 1][j]);
         } else if (i < cells.length - 1 && j == 0) {
-            //if current cell in left line
             movementCells.add(cells[i - 1][j]);
             movementCells.add(cells[i + 1][j]);
             movementCells.add(cells[i][j + 1]);
         } else if (i == (cells.length - 1) && j < (cells[i].length - 1)) {
-            //if current cell bottom line
             movementCells.add(cells[i][j - 1]);
             movementCells.add(cells[i][j + 1]);
             movementCells.add(cells[i - 1][j]);
         } else if (i < (cells.length - 1) && j == (cells[i].length - 1)) {
-            //if current cell right line
             movementCells.add(cells[i + 1][j]);
             movementCells.add(cells[i - 1][j]);
             movementCells.add(cells[i][j - 1]);
         } else {
-            //if current cell in middle
             movementCells.add(cells[i][j - 1]);
             movementCells.add(cells[i][j + 1]);
             movementCells.add(cells[i - 1][j]);
