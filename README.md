@@ -1,7 +1,7 @@
 # The Island
 Java core project "Dynamic Island"
 
-
+project 2
 Heelo every one.
 This is study project "th Island" where main them were using OOP and Multithreading. 
 In this program u can use "ParametersOfIsland.yaml" setting files to configure island resolution, period to show statistic on the island and start delay 
